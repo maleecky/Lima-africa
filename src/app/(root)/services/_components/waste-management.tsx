@@ -1,7 +1,7 @@
 import ExportedImage from "next-image-export-optimizer";
 import wasteManagementImg from "@/../public/assets/media/Group+765.png";
 import SectionTagHeading from "@/components/global/tags-heading";
-import { serviceContent } from "@/lib/constants";
+import { contactFormContents, serviceContent } from "@/lib/constants";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
@@ -32,7 +32,13 @@ const WasteManagement = () => {
             asChild
             className="bg-green-950  lg:hover:bg-green-800  py-6 px-6 rounded-full !h-0"
           >
-            <Link href="https://wa.me/255786922207">Chat us on whatsapp</Link>
+            <Link
+              href={`https://wa.me/${
+                contactFormContents.contactsInformation[0].label.split("+")[1]
+              }?text=Hello%20Lima%20`}
+            >
+              Chat us on whatsapp
+            </Link>
           </Button>
         </div>
       </div>

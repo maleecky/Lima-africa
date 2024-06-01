@@ -38,7 +38,7 @@ const TestimonialsSection = () => {
               <Card
                 key={index}
                 className={
-                  "embla__slide flex relative bg-[#EFF7FF] border-0 flex-col !p-4 !pt-6  "
+                  "embla__slide flex relative bg-[#EFF7FF]  border-0 flex-col !p-4 !pt-6  "
                 }
               >
                 <ExportedImage
@@ -48,7 +48,7 @@ const TestimonialsSection = () => {
                   aria-hidden
                   alt=""
                 />
-                <CardContent className="p-2 text-[#1e1e1e]  md:my-2 max-[298px]:mb-14">
+                <CardContent className="p-2 max-xmd:!pb-8 text-[#1e1e1e]  md:my-2 max-[298px]:mb-14">
                   {testimonial.testimonial}
                 </CardContent>
                 <CardFooter className="flex absolute min-[268px]:flex-row flex-col-reverse  left-0 justify-between max-[298px]:gap-1  bottom-6 !px-5 items-start  w-full !py-0 mt-auto min-[268px]:items-center">

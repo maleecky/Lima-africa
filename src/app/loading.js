@@ -1,7 +1,8 @@
 "use client";
 
 import React from "react";
+import LoadingComponent from "@/components/global/loading";
 
 export default function Loading() {
-  return <div className="h-screen bg-green-950 w-full">loading....</div>;
+  return <LoadingComponent />;
 }

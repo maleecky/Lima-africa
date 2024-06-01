@@ -1,5 +1,5 @@
 import HandWave from "@/../public/assets/media/hand-wave.svg";
-import { contactFormContentsType, headerContentsType } from "./types";
+import { headerContentsType } from "./types";
 import {
   ArchiveIcon,
   ExpandIcon,
@@ -16,9 +16,7 @@ import blackSoldier from "@/../public/assets/media/bsf-w.png";
 import limaOrganicFertilizer from "@/../public/assets/media/MAGUNIA MOCKUP 2.png";
 import PeopleStanding from "@/../public/assets/media/standing_about_1.jpg";
 import GreenhouseNet from "@/../public/assets/media/net_greenhouse.jpg";
-import OutdoorBucket from "@/../public/assets/media/outdoor_bucket.jpg";
 import MosqueShade from "@/../public/assets/media/shade.jpg";
-import PlasticFill from "@/../public/assets/media/plastic_fills.jpg";
 import personAvatar from "@/../public/assets/media/person.svg";
 import EnnovateLogo from "../../public/assets/media/ennovatelogo.png";
 import AquaEco from "@/../public/assets/media/aquaEco.png";
@@ -38,7 +36,6 @@ import YasserPhoto from "@/../public/assets/media/yasser.jpg";
 import MercusPhoto from "@/../public/assets/media/mercus.jpg";
 import limaWhite from "@/../public/assets/media/lima-logo-w.png";
 import RocketAvatar from "@/../public/assets/media/roket.svg";
-import CommitmentAvatar from "@/../public/assets/media/commitment.svg";
 import NoPovertyImg from "@/../public/assets/media/no-poverty.png";
 import NohungerImg from "@/../public/assets/media/appetite_5277050.png";
 import EqualityImg from "@/../public/assets/media/equality_4253821.png";
@@ -184,7 +181,7 @@ export const headerContents: headerContentsType = {
   contactBtn: { label: "Get in touch", path: "/contact", icon: HandWave },
 };
 
-export const contactFormContents: contactFormContentsType = {
+export const contactFormContents = {
   formHeader: "Get in touch",
   description: "Connect with us for inquiries, partneships or support.",
   contactsInformation: [
@@ -234,36 +231,51 @@ export const contactFormContents: contactFormContentsType = {
   fields: {
     twoRows: [
       {
+        name: "fullName",
+        placeholder: "Full Name",
+        controller: "input",
+        type: "text",
+        required: true,
+      },
+      {
         name: "phone",
         placeholder: "Phone number",
         controller: "input",
         type: "text",
+        required: true,
       },
+    ],
+    twoRows2: [
       {
         name: "email",
         placeholder: "Email",
         controller: "input",
         type: "email",
+        required: true,
       },
-    ],
-    threeCols: [
       {
         name: "address",
         placeholder: "Address",
         controller: "input",
         type: "text",
+        required: false,
       },
+    ],
+
+    cols: [
       {
         name: "socialLinks",
         placeholder: "Social media Link",
         controller: "input",
         type: "text",
+        required: false,
       },
       {
         name: "message",
-        placeholder: "Type your message...",
+        placeholder: "message",
         controller: "textarea",
         type: "text",
+        required: true,
       },
     ],
   },
@@ -465,14 +477,8 @@ export const aboutContents = {
       url: PeopleStanding,
       alt: "people standing look the black soldier fly larvae",
     },
-    twoGrid: [
-      { url: GreenhouseNet, alt: "Greehouse net" },
-      { url: OutdoorBucket, alt: "The outdoor Bucket" },
-    ],
-    lastTwoGrid: [
-      { url: MosqueShade, alt: "The mosque shade" },
-      { url: PlasticFill, alt: "larvae inside the plastic bucket" },
-    ],
+    twoGrid: [{ url: GreenhouseNet, alt: "Greehouse net" }],
+    lastTwoGrid: [{ url: MosqueShade, alt: "The mosque shade" }],
   },
   commitLists: {
     title: "Our Commitments",
@@ -566,7 +572,6 @@ export const aboutContents = {
     },
     {
       title: "Our Commitment",
-      image: { alt: "The rocket", url: CommitmentAvatar },
       description:
         " We are committed to promoting sustainability, improving food security, and supporting smallholder farmers. With your support, we can make a significant impact on smallholder farmer's activities and the environment.",
     },
@@ -582,26 +587,36 @@ export const aboutContents = {
         name: "ARNOLD SHOKO",
         title: "Founder & CEO",
         img: AnorldPhoto,
+        linkedinLink:
+          "https://www.linkedin.com/in/arnold-shoko-b262131a0/?originalSubdomain=tz",
       },
       {
         name: " Hellen Magreth",
         title: "Farm Manager",
         img: HellenPhoto,
+        linkedinLink:
+          "https://tz.linkedin.com/in/hellenmagreth-misso-42b446144",
       },
       {
         name: " Jarvis Bashabula",
         title: "Communication and Marketing",
         img: JarvisPhoto,
+        linkedinLink:
+          "https://www.linkedin.com/in/jarvis-bashabula-377528188?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
       },
       {
         name: "A Yaaseer Ally",
         title: "Finance Office",
         img: YasserPhoto,
+        linkedinLink:
+          "https://www.linkedin.com/in/iamkassuwi?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
       },
       {
         name: "Mercus Gondwe",
         title: "People and Culture",
         img: MercusPhoto,
+        linkedinLink:
+          "https://www.linkedin.com/in/mercus-gondwe-a11932243?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
       },
     ],
   },

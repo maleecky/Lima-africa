@@ -14,6 +14,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import dynamic from "next/dynamic";
+import { redirect } from "next/navigation";
+import { toast } from "@/components/ui/use-toast";
 
 const BenedictsDialog = dynamic(() => import("./_component/dialog_beneficts"));
 
@@ -40,7 +42,13 @@ const DistributorForm = () => {
     },
   });
 
-  const submitHandler = () => {};
+  const submitHandler = () => {
+    redirect("/");
+    toast({
+      title: "Success",
+      description: "The message is sent",
+    });
+  };
 
   const isLoading = form.formState.isSubmitting;
   return (

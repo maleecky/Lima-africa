@@ -23,7 +23,6 @@ type props = {
 const MainHeader = ({ theme }: props) => {
   const pageUrl = usePathname();
 
-  console.log(pageUrl);
   return (
     <header className="md:p-4 md:!px-8 py-5 px-2  absolute top-0 w-full flex items-center justify-between z-10">
       <aside className="flex items-center gap-2 ">

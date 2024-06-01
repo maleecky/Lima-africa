@@ -4,18 +4,28 @@ import { headerContents } from "@/lib/constants";
 import Link from "next/link";
 import { Button } from "../ui/button";
 import ExportedImage from "next-image-export-optimizer";
+import ProductSubSectionMenu from "./product-subsections";
 
 const MenuContents = () => {
   return (
     <SheetContent>
       <div className="flex flex-col gap-5 w-full h-full items-center justify-center">
-        {headerContents.links.map((link, index) => (
-          <SheetClose key={index} asChild>
-            <Link href={link.path} className="text-[1.2em] text-green-950">
-              {link.label}
-            </Link>
-          </SheetClose>
-        ))}
+        {headerContents.links.map((link, index) => {
+          if (link.label === "Products") {
+            return (
+              <SheetClose key={index} asChild>
+                <ProductSubSectionMenu btn={link.label} />
+              </SheetClose>
+            );
+          }
+          return (
+            <SheetClose key={index} asChild>
+              <Link href={link.path} className="text-[1.2em] text-green-950">
+                {link.label}
+              </Link>
+            </SheetClose>
+          );
+        })}
         <SheetClose asChild>
           <Button
             asChild

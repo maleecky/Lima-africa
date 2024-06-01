@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import "./globals.css";
 import { Open_Sans } from "next/font/google";
+import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
   title: "LIMA: Transforming Food Systems in Africa",
@@ -25,6 +26,7 @@ export default function RootLayout({
         className={`${font.className} overflow-y-auto relative w-full mx-auto`}
       >
         {children}
+        <Toaster />
       </body>
     </html>
   );

@@ -19,6 +19,8 @@ import * as z from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "@/components/ui/input";
+import { toast } from "@/components/ui/use-toast";
+import { redirect } from "next/navigation";
 
 const FormSchema = z.object({
   name: z.string().min(2),
@@ -53,7 +55,13 @@ const ProductPage = ({ productId, productName }: props) => {
     },
   });
 
-  const submitHandler = () => {};
+  const submitHandler = () => {
+    redirect("/");
+    toast({
+      title: "Success",
+      description: "The message is sent",
+    });
+  };
 
   const isLoading = form.formState.isSubmitting;
 

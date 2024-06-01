@@ -1,10 +1,13 @@
+import { contactFormContents } from "@/lib/constants";
 import clsx from "clsx";
 import Link from "next/link";
 
 const WhatsappButton = () => {
   return (
     <Link
-      href="https://wa.me/255786922207"
+      href={`https://wa.me/${
+        contactFormContents.contactsInformation[0].label.split("+")[1]
+      }?text=Hello%20Lima%20`}
       className="bottom-5 right-0 mr-5 gap-2 z-20 transition-all duration-75 ease-in flex whatsapp__hover fixed rounded-full"
     >
       <span

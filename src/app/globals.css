@@ -142,7 +142,7 @@
     @apply bg-white text-foreground overflow-hidden;
     scroll-behavior: smooth;
     text-size-adjust: 100%;
-    font-size: 1em;
+    font-size: 1.125em !important;
   }
 }
 
@@ -306,7 +306,7 @@ label {
 .embla {
   max-width: 100%;
   margin: auto;
-  --slide-height: 19rem;
+  --slide-height: 19em;
   --slide-spacing: 1rem;
   --slide-size: 33.33%;
   position: relative;
@@ -407,22 +407,28 @@ label {
   }
 }
 
-@media (max-width: 590px) {
+@media (max-width: 650px) {
   .embla__slide {
     flex: 0 0 calc(100% - 52px);
     min-width: 100% !important;
+  }
+  .embla__container {
+    height: 340px !important;
   }
 }
 
 @media (max-width: 320px) {
   .embla__container {
-    height: 340px !important;
+    height: 415px !important;
   }
 }
 
 @media (max-width: 280px) {
   .embla__slide {
     @apply text-sm !px-2 whitespace-pre-wrap;
+  }
+  .embla__container {
+    height: auto !important;
   }
 }
 
@@ -472,6 +478,7 @@ label {
   .card-hovered:hover .blured {
     min-height: 100%;
   }
+
   .hover-arrow-animate:hover svg {
     animation: bounceltr 1.2s ease-in-out infinite;
   }
@@ -497,5 +504,33 @@ label {
   }
   .hovered:hover .img-container {
     @apply scale-150;
+  }
+}
+
+.google-maps {
+  position: relative;
+  padding-bottom: 75%;
+  height: 0;
+  overflow: hidden;
+}
+.google-maps iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.loading-icon {
+  animation: rotating 2s linear infinite;
+  transform-origin: center;
+}
+
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }

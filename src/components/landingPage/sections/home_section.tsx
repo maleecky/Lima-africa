@@ -22,7 +22,7 @@ const HomeSection = () => {
       <div className="flex-1 max-w-[2500px] mx-auto w-full relative flex justify-center flex-col md:px-8 px-4 ">
         <div className="flex flex-col gap-4">
           <p className="text-sm">{homepageContents.welcomeNote}</p>
-          <div className="pb-4 w-full flex flex-col gap-2">
+          <div className="pb-4 max-xmd:pb-6 w-full flex flex-col gap-2">
             <div className="sm:leading-[1.2] leading-none">
               {homepageContents.mainHeading.map((heading, index) => (
                 <h1
@@ -48,7 +48,7 @@ const HomeSection = () => {
             className="bg-[#B0D93B] xmd:w-max hover:bg-[#B0D93D] max-sm:text-xs text-black max-[192px]:whitespace-normal flex space-x-2 max-[192px]:text-center !h-0 !p-6  rounded-full"
             asChild
           >
-            <Link href="/products" className="hover-arrow-animate">
+            <Link href="/products/bsf_dried" className="hover-arrow-animate">
               <span>Check our products</span>
               <ArrowRight width={14} />
             </Link>

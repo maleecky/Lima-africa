@@ -1,49 +1,58 @@
-import React from "react";
-import ContactForm from "../forms/contact_form";
+import { contactFormContents } from "@/lib/constants";
 import { Button } from "../ui/button";
 import Link from "next/link";
-import { contactFormContents } from "@/lib/constants";
-
 import GoogleMaps from "./google-map";
+import { Mail, PhoneCall } from "lucide-react";
+import ContactForm from "../forms/contact_form";
+import clsx from "clsx";
 
-const Contact = () => {
+type props = {
+  hideCss?: string;
+};
+
+const Contact = ({ hideCss }: props) => {
   return (
-    <div className="flex w-full lg:items-start items-center lg:flex-row lg:pb-4 pb-[5rem] flex-col lg:justify-center lg:gap-40 space-x-0  justify-between   relative  ">
-      <div className="z-10 flex mb-[2rem]  flex-col lg:items-start  items-center">
-        <h4 className="text-2xl max-sm:text-xl  font-medium mb-2">
+    <div className="flex w-full py-[4em] lg:items-start lg:flex-row lg:pb-4 pb-[5rem] flex-col  lg:gap-20   justify-between relative  ">
+      <div
+        className={clsx("z-10 flex flex-[0_0_50%] flex-col lg:items-start ", {
+          "max-lg:hidden": hideCss,
+        })}
+      >
+        <h4 className="text-[2em]  font-medium mb-2">
           {contactFormContents.formHeader}
         </h4>
-        <p className="text-center max-xs:text-sm lg:text-left ">
+        <p className=" text-xl lg:text-left ">
           {contactFormContents.description}
         </p>
-        <ul className="mt-6 ">
-          <div className="max-w-[400px] max-xs:text-sm  mx-auto space-y-2">
-            {contactFormContents.contactsInformation.map(
-              (information, index) => (
-                <div key={index} className="flex space-x-2 items-center">
-                  {information.icon()}
-                  <p>{information.label}</p>
-                </div>
-              )
-            )}
-          </div>
-        </ul>
+        <Button
+          className="bg-[#013941] lg:hover:bg-[#013494] p-6 w-max lg:hidden flex mt-7 max-xmd:w-full"
+          asChild
+        >
+          <Link href="/contact">Fill in the Form</Link>
+        </Button>
         <GoogleMaps />
-        <ul className="flex lg:relative bottom-0 absolute items-center  lg:my-8">
-          <div className="space-x-5 ">
-            {contactFormContents.socials.map((social, index) => (
-              <Button
-                key={index}
-                asChild
-                className="sm:rounded-full sm:px-3 sm:py-0.5 p-0 sm:bg-[#0C3623] bg-transparent max-sm:hover:bg-transparent  "
-              >
-                <Link href={social.link}>{social.icon()}</Link>
-              </Button>
-            ))}
+        <div className="mt-8 max-sm:flex-col flex-row flex xmd:gap-20 gap-10">
+          <div className="space-y-1">
+            <div>
+              <Mail className="w-8 h-8" />
+              <h4 className="text-[1.125em] font-medium ">Email</h4>
+            </div>
+            <p className="text-sm">
+              {contactFormContents.contactsInformation[1].label}
+            </p>
           </div>
-        </ul>
+          <div className="space-y-1">
+            <div>
+              <PhoneCall className="w-8 h-8" />
+              <h4 className="text-[1.125em] font-medium">Phone</h4>
+            </div>
+            <p className="text-sm">
+              {contactFormContents.contactsInformation[0].label}
+            </p>
+          </div>
+        </div>
       </div>
-      <ContactForm />
+      <ContactForm hideCss={hideCss} />
     </div>
   );
 };

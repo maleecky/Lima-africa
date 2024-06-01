@@ -1,5 +1,4 @@
 import { partnersContents } from "@/lib/constants";
-import ExportedImage from "next-image-export-optimizer";
 import SectionTagHeading from "../../global/tags-heading";
 import Testimonials from "@/components/home/testimonials";
 

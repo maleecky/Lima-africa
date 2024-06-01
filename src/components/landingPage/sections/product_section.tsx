@@ -29,7 +29,7 @@ const ProductSection = () => {
             variant={"ghost"}
           >
             <Link href={product.link.path}>
-              <Card className="flex border-none  rounded-lg bg-orange-200 overflow-hidden p-4  flex-1 h-full z-10  relative  flex-col justify-end  min-w-full  ">
+              <Card className="flex border-none  rounded-lg bg-orange-200 overflow-hidden xmd:p-4 max-xmd:py-3  flex-1 h-full z-10  relative  flex-col justify-end  min-w-full  ">
                 <div className="relative flex-1 min-h-[14em]">
                   <ExportedImage
                     src={product.img}
@@ -46,7 +46,7 @@ const ProductSection = () => {
                         <h4 className=" text-[#1e1e1e]  tracking-tight relative text-[1.4em] leading-[1.2] max-lg:mb-3 lg:absolute lg:bottom-0 lg:left-0 font-medium product ">
                           {product.title}
                         </h4>
-                        <p className="text-[#1e1e1e] lg:backdrop-blur lg:p-4 w-full overflow-hidden product-desc lg:max-w-[40em]  max-w-[25em] lg:hidden block text-ellipsis box-border line-clamp-3 cursor-vertical-text text-sm lg:text-xl  ">{`${product.descriptions[0]}`}</p>
+                        <p className="text-[#1e1e1e] lg:backdrop-blur lg:p-4 w-full overflow-hidden product-desc lg:max-w-[40em]  max-w-[25em] lg:hidden block text-ellipsis box-border line-clamp-3 cursor-vertical-text text-[1.125em] ">{`${product.descriptions[0]}`}</p>
                       </div>
                       <ArrowRightCircle
                         color="black"

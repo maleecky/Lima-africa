@@ -28,6 +28,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import BenedictsDialog from "./_component/dialog_beneficts";
+import { redirect } from "next/navigation";
+import { toast } from "@/components/ui/use-toast";
 
 const FormSchema = z.object({
   Name: z.string().min(2),
@@ -50,7 +52,13 @@ const SupplierForm = () => {
     },
   });
 
-  const submitHandler = () => {};
+  const submitHandler = () => {
+    redirect("/");
+    toast({
+      title: "Success",
+      description: "The message is sent",
+    });
+  };
 
   const isLoading = form.formState.isSubmitting;
   return (

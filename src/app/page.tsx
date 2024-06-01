@@ -13,8 +13,20 @@ import ImpactsSection from "@/components/landingPage/sections/impacts_section";
 import TestimonialsSection from "@/components/landingPage/sections/tetimonials_section";
 import ClientsSection from "@/components/landingPage/sections/clients_section";
 import CollaborateSection from "@/components/landingPage/sections/collaborate_section";
+import { useEffect, useState } from "react";
+import LoadingComponent from "@/components/global/loading";
 
 export default function Home() {
+  const [contentshown, setContentshown] = useState(false);
+
+  useEffect(() => {
+    setContentshown(true);
+  }, []);
+
+  if (!contentshown) {
+    return <LoadingComponent />;
+  }
+
   return (
     <>
       <MainHeader />
