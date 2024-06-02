@@ -64,7 +64,7 @@ export const serviceContent = {
 export const customersPitch = {
   descriptions: [
     "Today’s customers seek out sustainable brands.",
-    "LIMA AFRICA offers you the chance to enhance your brand’s sustainability by responsibly managing your food waste. Seize this.opportunity to boost your brand value and meet your sustainability goals!.",
+    "LIMA AFRICA offers you the chance to enhance your brand’s sustainability by responsibly managing your food waste. Seize this opportunity to boost your brand value and meet your sustainability goals!.",
   ],
 };
 

@@ -271,7 +271,7 @@ label {
 }
 
 .icon {
-  @apply bg-[#f8fbff] border border-slate-200/10 rounded-sm shadow-lg shadow-slate-100 rotate-[100deg] w-12 h-12;
+  @apply bg-[#f8fbff] border border-slate-200/10 rounded-sm shadow-lg shadow-slate-100  rotate-[100deg] w-10 h-10 flex items-center justify-center;
 }
 
 .logos {
@@ -285,6 +285,13 @@ label {
 }
 .logos:hover .logos-slide {
   animation-play-state: paused;
+}
+.pause-animation {
+  animation-play-state: paused;
+}
+
+.start-animation {
+  animation-play-state: running;
 }
 .logos-slide {
   display: flex;
@@ -422,6 +429,16 @@ label {
     height: 415px !important;
   }
 }
+@media (max-width: 480px) {
+  .logos-slide .slide {
+    height: 100px;
+    width: 150px;
+  }
+  .logos {
+    overflow: hidden;
+    padding: 15px 0;
+  }
+}
 
 @media (max-width: 280px) {
   .embla__slide {
@@ -533,4 +550,12 @@ label {
   to {
     transform: rotate(360deg);
   }
+}
+
+.accordion {
+  width: 100%;
+}
+
+.accordion svg {
+  display: none;
 }

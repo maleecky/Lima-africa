@@ -22,7 +22,7 @@ const HomeSection = () => {
       <div className="flex-1 max-w-[2500px] mx-auto w-full relative flex justify-center flex-col md:px-8 px-4 ">
         <div className="flex flex-col gap-4">
           <p className="text-sm">{homepageContents.welcomeNote}</p>
-          <div className="pb-4 max-xmd:pb-6 w-full flex flex-col gap-2">
+          <div className="pb-4 max-xmd:pb-[2.5em] w-full flex flex-col gap-4">
             <div className="sm:leading-[1.2] leading-none">
               {homepageContents.mainHeading.map((heading, index) => (
                 <h1

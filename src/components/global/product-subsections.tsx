@@ -16,7 +16,7 @@ const ProductSubSectionMenu = ({ btn }: props) => {
         <ArrowRight width={16} className="absolute -right-5" />
       </SheetTrigger>
       <SheetContent>
-        <ul className="p-4 flex justify-center items-center h-full flex-col">
+        <ul className="p-4 flex justify-center z-[10000] items-center h-full flex-col">
           <div className="flex gap-4 flex-col">
             <SheetClose asChild>
               <Button
@@ -28,13 +28,14 @@ const ProductSubSectionMenu = ({ btn }: props) => {
               </Button>
             </SheetClose>
             {headerContents.links[0].productList.map((item, index) => (
-              <Link
-                className=" hover:text-[#3f3f3f]  md:text-[1.35em] text-[1.25em] p-0  leading-[1]  rounded transition-all ease-in duration-100"
-                href={`/products/${item.link}`}
-                key={index}
-              >
-                {item.label}
-              </Link>
+              <SheetClose key={index} asChild>
+                <Link
+                  className=" hover:text-[#3f3f3f]  md:text-[1.35em] text-[1.25em] p-0  leading-[1]  rounded transition-all ease-in duration-100"
+                  href={`/products/${item.link}`}
+                >
+                  {item.label}
+                </Link>
+              </SheetClose>
             ))}
           </div>
         </ul>
