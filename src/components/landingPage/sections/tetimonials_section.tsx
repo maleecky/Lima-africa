@@ -38,7 +38,7 @@ const TestimonialsSection = () => {
               <Card
                 key={index}
                 className={
-                  "embla__slide flex relative bg-[#EFF7FF]  border-0 flex-col !p-4 !pt-6  "
+                  "embla__slide flex relative bg-[#EFF7FF] rounded-2xl  border-0 flex-col !p-4 !pt-6  "
                 }
               >
                 <Image

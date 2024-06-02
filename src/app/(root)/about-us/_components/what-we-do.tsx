@@ -4,7 +4,7 @@ import React from "react";
 
 const WhatWeDo = () => {
   return (
-    <section className="md:px-14 px-4 mb-[8.5em] py-[100px] max-w-[140em] mx-auto">
+    <section className="md:px-14 px-4 mb-[7.5em] pt-[100px] max-w-[140em] mx-auto">
       <div className="flex lg:flex-row flex-col-reverse justify-center items-center w-full gap-10">
         <div className="lg:flex-[0_0_60%] w-full">
           <h1 className="lg:text-4xl xmd:text-3xl text-2xl xmd:mb-5 mb-1 font-medium  text-[#1e1e1e]">

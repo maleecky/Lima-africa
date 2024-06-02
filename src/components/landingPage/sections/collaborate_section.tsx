@@ -13,7 +13,7 @@ const CollaborateSection = () => {
           <Card
             key={index}
             className={clsx(
-              "lg:flex-1 max-xmd:flex-col max-[300px]:h-full !py-[2.5rem] space-x-3 xmd:space-x-0 max-xmd:space-y-3  border-0 shadow-none relative min-[845px]:h-[200px] flex max-lg:flex-row  flex-row  items-center justify-between overflow-hidden p-4",
+              "lg:flex-1 max-xmd:flex-col max-[300px]:h-full !py-[2.5rem] space-x-3 rounded-2xl xmd:space-x-0 max-xmd:space-y-3  border-0 shadow-none relative min-[845px]:h-[200px] flex max-lg:flex-row  flex-row  items-center justify-between overflow-hidden p-4",
               {
                 "text-white bg-[#0C3623]": card.theme === "black",
                 "text-[#fff] bg-[#0C3623]": card.theme === "white",

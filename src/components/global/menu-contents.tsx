@@ -4,7 +4,6 @@ import { headerContents } from "@/lib/constants";
 import Link from "next/link";
 import { Button } from "../ui/button";
 import Image from "next/image";
-import ProductSubSectionMenu from "./product-subsections";
 import {
   Accordion,
   AccordionContent,

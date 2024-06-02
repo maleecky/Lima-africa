@@ -29,7 +29,7 @@ const ProductSection = () => {
             variant={"ghost"}
           >
             <Link href={product.link.path}>
-              <Card className="flex border-none  rounded-lg bg-orange-200 overflow-hidden xmd:p-4 max-xmd:py-3  flex-1 h-full z-10  relative  flex-col justify-end  min-w-full  ">
+              <Card className="flex border-none  rounded-2xl bg-orange-200 overflow-hidden xmd:p-4 max-xmd:py-3  flex-1 h-full z-10  relative  flex-col justify-end  min-w-full  ">
                 <div className="relative flex-1 min-h-[14em]">
                   <Image
                     src={product.img}

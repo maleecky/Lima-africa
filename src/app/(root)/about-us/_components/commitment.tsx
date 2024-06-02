@@ -3,7 +3,7 @@ import React from "react";
 
 const Commitment = () => {
   return (
-    <section className="md:px-8 px-4 max-w-[140em] pb-[8.5em] mx-auto">
+    <section className="md:px-8 px-4 max-w-[140em] pb-[7.5em] mx-auto">
       <div className="flex items-center w-full h-full  justify-center">
         <div className="flex flex-col gap-10">
           <h1 className="lg:text-4xl xmd:text-3xl text-2xl xmd:mb-4 mb-1 font-bold  text-[#1e1e1e]">

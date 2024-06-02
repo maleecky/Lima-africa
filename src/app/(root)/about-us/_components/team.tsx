@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const TeamSection = () => {
   return (
-    <section className="flex flex-col pb-[8.5em] gap-8 bg-[#EFF7FF] items-center justify-center py-10 md:px-8 px-4  ">
+    <section className="flex flex-col pb-[7.5em] gap-8 bg-[#EFF7FF] items-center justify-center py-10 md:px-8 px-4  ">
       <div className="max-w-[800px] text-center">
         <h1 className="lg:text-4xl xmd:text-3xl text-2xl xmd:mb-5 mb-1 font-semibold tracking-tight ">
           {aboutContents.Team.title}
