@@ -40,6 +40,8 @@ type Props = {
   hideCss?: string;
 };
 
+type FormSchemaType = z.infer<typeof FormSchema>;
+
 const ContactForm = ({ hideCss }: Props) => {
   const router = useRouter();
   const form = useForm<FormSchemaType>({
