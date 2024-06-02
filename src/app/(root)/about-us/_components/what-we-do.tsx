@@ -1,5 +1,5 @@
 import { aboutContents } from "@/lib/constants";
-import ExportedImage from "next-image-export-optimizer";
+import Image from "next/image";
 import React from "react";
 
 const WhatWeDo = () => {
@@ -17,11 +17,11 @@ const WhatWeDo = () => {
           </div>
         </div>
         <div className="relative overflow-hidden min-h-[400px] w-full lg:flex-[0_0_40%]  rounded  object-cover ">
-          <ExportedImage
+          <Image
             src={aboutContents.photoGallery.lonephoto.url}
             alt={aboutContents.photoGallery.lonephoto.alt}
             fill
-            sizes="(min-width: 768px) 50vw, (max-width: 768px) 25vw "
+            sizes="100vw"
             className="w-full object-cover  "
           />
         </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import ExportedImage from "next-image-export-optimizer";
+import Image from "next/image";
 import React from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -20,21 +20,24 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "@/components/ui/input";
 import { toast } from "@/components/ui/use-toast";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 const FormSchema = z.object({
   name: z.string().min(2),
   email: z.string().min(1),
-  quantity: z.number().min(1),
-  product: z.string().min(1),
+  quantity: z.coerce.number().min(1).max(99).int(),
+  product: z.string().optional(),
 });
 
 type props = {
   productId?: number;
   productName?: string;
 };
+type FormSchemaType = z.infer<typeof FormSchema>;
 
 const ProductPage = ({ productId, productName }: props) => {
+  const router = useRouter();
+
   const displayedProduct = () => {
     if (productId !== undefined && productId >= 0) {
       return productsContent.products[productId];
@@ -55,12 +58,13 @@ const ProductPage = ({ productId, productName }: props) => {
     },
   });
 
-  const submitHandler = () => {
-    redirect("/");
+  const submitHandler = (values: FormSchemaType) => {
     toast({
       title: "Success",
       description: "The message is sent",
     });
+    form.reset();
+    router.refresh();
   };
 
   const isLoading = form.formState.isSubmitting;
@@ -73,10 +77,11 @@ const ProductPage = ({ productId, productName }: props) => {
             <div className="text-sm absolute top-[8px] left-[8px] bg-[#C6E156] rounded-2xl py-2 px-4  ">
               Lima Product
             </div>
-            <ExportedImage
+            <Image
               //@ts-ignore
               src={displayedProduct().img}
               fill
+              sizes="100vw"
               alt="hero image "
               className="object-contain w-full  h-full object-center  "
             />
@@ -235,10 +240,10 @@ const ProductPage = ({ productId, productName }: props) => {
         </section>
         <section className="w-full pt-[5em] pb-[4em]   relative  flex flex-col   ">
           <div className="flex flex-col text-[#1e1e1e] gap-2">
-            <h2 className="md:text-[1.4em] text-2xl font-medium">
+            <h2 className="md:text-[1.375em] text-2xl font-medium">
               Product Descriptions
             </h2>
-            <div className=" md:text-[1.25em] text-[1.125em] text-[#1e1e1e] md:leading-[1.4rem] w-full xmd:max-w-[800px]">
+            <div className=" md:text-[1.125em]  text-[#1e1e1e] md:leading-[1.4rem] w-full xmd:max-w-[800px]">
               <p>
                 {
                   //@ts-ignore
@@ -250,14 +255,14 @@ const ProductPage = ({ productId, productName }: props) => {
         </section>
         <section className="w-full pb-[4em]   relative  flex flex-col   ">
           <div className="flex flex-col text-[#1e1e1e] gap-2">
-            <h2 className="md:text-[1.4em] text-2xl font-medium">
+            <h2 className="md:text-[1.375em] text-2xl font-medium">
               Applications of{" "}
               {
                 //@ts-ignore
                 displayedProduct().title
               }
             </h2>
-            <div className=" md:text-[1.25em] text-[1.125em] text-[#1e1e1e] md:leading-[1.4rem] w-full xmd:max-w-[800px]">
+            <div className=" md:text-[1.125em]  text-[#1e1e1e] md:leading-[1.4rem] w-full xmd:max-w-[800px]">
               <p>
                 {
                   //@ts-ignore
@@ -269,10 +274,10 @@ const ProductPage = ({ productId, productName }: props) => {
         </section>
         <section className="w-full pb-[4em]   relative  flex flex-col   ">
           <div className="flex flex-col text-[#1e1e1e] gap-2">
-            <h2 className="md:text-[1.4em] text-2xl font-medium">
+            <h2 className="md:text-[1.375em] text-2xl font-medium">
               Suitable for
             </h2>
-            <div className=" md:text-[1.25em] text-[1.125em] text-[#1e1e1e] leading-[1.4rem] w-full xmd:max-w-[800px]">
+            <div className=" md:text-[1.125em]  text-[#1e1e1e] leading-[1.4rem] w-full xmd:max-w-[800px]">
               <p>
                 {
                   //@ts-ignore
@@ -287,7 +292,7 @@ const ProductPage = ({ productId, productName }: props) => {
             <h2 className="md:text-[1.4em] text-2xl  font-medium">
               Nutritional Contents
             </h2>
-            <div className=" md:text-[1.25em] text-[1.125em] text-[#1e1e1e] leading-[1.4rem] w-full xmd:max-w-[800px]">
+            <div className=" md:text-[1.125em]  text-[#1e1e1e] leading-[1.4rem] w-full xmd:max-w-[800px]">
               {
                 //@ts-ignore
                 displayedProduct().NutritionalContents.map((content, index) => (
@@ -299,10 +304,10 @@ const ProductPage = ({ productId, productName }: props) => {
         </section>
         <section className="w-full pb-[4em]   relative  flex flex-col   ">
           <div className="flex flex-col text-[#1e1e1e] gap-2">
-            <h2 className="md:text-[1.4em] text-2xl font-medium">
+            <h2 className="md:text-[1.375em] text-2xl font-medium">
               Explore more from Lima Africa&apos;s Products
             </h2>
-            <div className="pt-4 gap-10 w-full lg:flex-row flex-col relative flex  whitespace-nowrap">
+            <div className="pt-4 gap-10 w-full xmd:flex-row flex-col relative flex  whitespace-nowrap">
               {productsContent.products.map((product, index) => {
                 //@ts-ignore
                 if (product.title === displayedProduct().title) {
@@ -312,25 +317,25 @@ const ProductPage = ({ productId, productName }: props) => {
                   <Button
                     key={index}
                     asChild
-                    className="flex  rounded-lg overflow-hidden h-full min-h-[250px]   relative  flex-col  w-full xmd:max-w-[300px] max-sm:min-h-[250px] max-xs:min-w-[150px]   shadow-none hovered p-0"
+                    className="flex  rounded-lg overflow-hidden h-full min-h-[250px]   relative  flex-col  w-full xmd:max-w-[350px] max-sm:min-h-[250px] max-xs:min-w-[150px]   shadow-none hovered p-0"
                     variant={"ghost"}
                   >
                     <Link href={product.link.path}>
-                      <Card className="flex border-none  rounded-lg bg-[#013941] py-[1em] overflow-hidden  flex-1 h-full z-10  relative  flex-col justify-end  min-w-full  ">
+                      <Card className="flex border-none  rounded-lg bg-[#013941] p-[1em]  overflow-hidden  flex-1 h-full z-10  relative  flex-col justify-end  min-w-full  ">
                         <div className="relative flex-1 min-h-[10em]">
-                          <ExportedImage
+                          <Image
                             src={product.img}
                             fill
-                            sizes="(min-width: 768px) 50vw, (max-width: 768px) 25vw, 12.5vw"
+                            sizes="100vw"
                             alt={product.title}
                             className={"block object-cover img-container"}
                           />
                         </div>
                         <div className="flex flex-col w-full rounded-full items-center   ">
                           <div className="flex flex-col justify-center    leading-1 space-y-5 w-full  whitespace-normal">
-                            <div className="flex justify-between relative !mb-4  px-2 m-3 items-end  min-h-full z-10 ">
+                            <div className="flex justify-between relative  items-end  min-h-full z-10 ">
                               <div className="inline-block  w-full  ">
-                                <h4 className=" text-[#fff]  tracking-tight relative text-[1.25em] leading-[1.2] max-lg:mb-3 lg:absolute lg:bottom-0 lg:left-0 font-medium product ">
+                                <h4 className=" text-[#fff]  tracking-tight relative leading-[1.2] max-lg:mb-3 lg:absolute lg:bottom-0 lg:left-0 font-medium product ">
                                   {product.title}
                                 </h4>
 
@@ -362,25 +367,25 @@ const ProductPage = ({ productId, productName }: props) => {
               {!productName && (
                 <Button
                   asChild
-                  className="flex  rounded-lg overflow-hidden  h-full min-h-[250px]   relative  flex-col  w-full xmd:max-w-[300px] max-sm:min-h-[250px] max-xs:min-w-[150px]   shadow-none hovered p-0"
+                  className="flex  rounded-lg overflow-hidden  h-full min-h-[250px]   relative  flex-col  w-full xmd:max-w-[350px] max-sm:min-h-[250px] max-xs:min-w-[150px]   shadow-none hovered p-0"
                   variant={"ghost"}
                 >
                   <Link href={productsContent.bsfLive.link.path}>
-                    <Card className="flex border-none  rounded-lg bg-[#013941] py-[1em] overflow-hidden  flex-1 h-full z-10  relative  flex-col justify-end  min-w-full  ">
+                    <Card className="flex border-none  rounded-lg bg-[#013941] p-[1em] overflow-hidden  flex-1 h-full z-10  relative  flex-col justify-end  min-w-full  ">
                       <div className="relative flex-1 min-h-[10em]">
-                        <ExportedImage
+                        <Image
                           src={productsContent.products[0].img}
                           fill
-                          sizes="(min-width: 768px) 50vw, (max-width: 768px) 25vw, 12.5vw"
+                          sizes="100vw"
                           alt={productsContent.bsfLive.title}
                           className={"block object-cover img-container"}
                         />
                       </div>
                       <div className="flex flex-col w-full rounded-full items-center   ">
                         <div className="flex flex-col justify-center    leading-1 space-y-5 w-full  whitespace-normal">
-                          <div className="flex justify-between relative !mb-4  px-2 m-3 items-end  min-h-full z-10 ">
+                          <div className="flex justify-between relative   items-end  min-h-full z-10 ">
                             <div className="inline-block  w-full  ">
-                              <h4 className=" text-[#fff]  tracking-tight relative text-[1.25em] leading-[1.2] max-lg:mb-3 lg:absolute lg:bottom-0 lg:left-0 font-medium product ">
+                              <h4 className=" text-[#fff]  tracking-tight relative  leading-[1.2] max-lg:mb-3 lg:absolute lg:bottom-0 lg:left-0 font-medium product ">
                                 {productsContent.bsfLive.title}
                               </h4>
                               <p className="text-[#1e1e1e] lg:backdrop-blur absolute top-50% translate-x-[0%]  translate-y-[100%] left-50%  lg:p-4 w-full overflow-hidden product-desc  lg:hidden block text-ellipsis box-border line-clamp-3 cursor-vertical-text  ">{`${productsContent.bsfLive.descriptions}`}</p>

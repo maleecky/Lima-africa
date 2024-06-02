@@ -23,7 +23,7 @@ const MainFooter = ({ theme }: { theme?: string }) => {
         </div>
       </div>
       <ul className="flex lg:relative items-center ">
-        <div className="space-x-5 ">
+        <div className="flex max-[210px]:flex-col flex-row gap-5 ">
           {contactFormContents.socials.map((social, index) => (
             <Button
               key={index}

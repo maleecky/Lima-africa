@@ -1,9 +1,6 @@
-import { Card, CardContent } from "@/components/ui/card";
 import { aboutContents } from "@/lib/constants";
-import { Linkedin } from "lucide-react";
-import ExportedImage from "next-image-export-optimizer";
+import Image from "next/image";
 import Link from "next/link";
-import { Url } from "url";
 
 const TeamSection = () => {
   return (
@@ -24,16 +21,11 @@ const TeamSection = () => {
             href={member.linkedinLink}
             className="flex flex-[0_0_20%] relative  bg-transparent justify-center items-center flex-col "
           >
-            {/* <Card
-              className={
-                " relative  bg-transparent justify-center items-center shadow-none border-none rounded-none flex flex-col "
-              }
-            > */}
             <div className="relative h-20 w-20">
-              <ExportedImage
+              <Image
                 src={member.img}
                 fill
-                sizes="(min-width: 768px) 40vw,(max-width:768px) 20vw,10vw "
+                sizes="100vw"
                 alt={member.name}
                 className=" object-cover  object-center rounded-full"
               />
@@ -45,7 +37,6 @@ const TeamSection = () => {
               </h4>
               <p className="text-sm text-slate-500 px-2">{member.title}</p>
             </div>
-            {/* </Card> */}
           </Link>
         ))}
       </div>

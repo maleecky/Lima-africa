@@ -1,4 +1,4 @@
-import ExportedImage from "next-image-export-optimizer";
+import Image from "next/image";
 import BsfImages from "@/../public/assets/media/BSF_image.jpeg";
 import React from "react";
 import {
@@ -20,40 +20,41 @@ const ImpactsSection = () => {
   } = usePrevNextButtons(emblaApi);
   return (
     <section className="w-full mb-[7.5rem] lg:px-14 md:px-8 px-4 ">
-      <div className="flex relative  justify-center items-center h-full">
-        <div className="h-[500px] flex-1  rounded-2xl overflow-hidden  ">
-          <ExportedImage
+      <div className="flex relative  w-full h-full">
+        <div className="min-h-[500px] relative w-full rounded-2xl overflow-hidden  ">
+          <Image
             src={BsfImages}
             fill
-            sizes="(min-width: 768px) 70vw, (max-width: 768px) 35vw, 17vw"
+            sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw"
             alt="black soldier fly"
-            className="absolute top-0 bottom-0 -z-10 right-0 left-0 object-cover w-full rounded-lg"
+            className="object-cover"
           />
         </div>
-        <div className="embla">
+        <div className="embla !absolute h-full right-0 top-0 pt-4 flex justify-center">
           <div className="embla__viewport" ref={emblaRef}>
-            <div className="embla__container !max-w-[30em] !h-[25em]  ">
+            <div className="embla__container   !max-w-[25em] !h-[25em]  ">
               {impactsSection.impacts.map((impact, index) => (
                 <div
                   key={index}
                   className="embla__slide !flex-[0_0_100%] backdrop-blur-[4px] rounded-lg  text-white  p-4 !px-6 flex flex-col justify-center gap-4"
                 >
-                  <h2 className="lg:text-[1.8em] text-[1.375em] font-medium tracking-tight flex gap-2 items-center">
+                  <h2 className="lg:text-[1.4em] text-[1.25em] font-medium tracking-tight flex gap-2 items-center">
                     <span>{impact.title}</span>
                     {impact.imgUrl && (
-                      <ExportedImage
+                      <Image
                         src={impact.imgUrl}
                         alt=""
                         height={40}
                         width={20}
+                        className="w-10 h-10"
                       />
                     )}
                   </h2>
-                  <div className="flex flex-col gap-2 leading-[1.4rem]">
-                    <p className="text-[1.2em]  ">
+                  <div className="flex flex-col gap-2 sm:leading-[1.5rem] leading-[1.2rem]">
+                    <p className="text-[1.0625em]  ">
                       {impact.description?.hazard}
                     </p>
-                    <p className="text-[1.2em] ">
+                    <p className="text-[1.0625em] ">
                       {impact.description?.impact}
                     </p>
                   </div>

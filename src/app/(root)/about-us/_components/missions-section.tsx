@@ -1,5 +1,5 @@
 import { aboutContents } from "@/lib/constants";
-import ExportedImage from "next-image-export-optimizer";
+import Image from "next/image";
 import React from "react";
 
 const MissionsSection = () => {
@@ -7,7 +7,7 @@ const MissionsSection = () => {
     <section className="md:px-14 px-4 mb-[8.5em] py-[100px] bg-[#EFF7FF] max-w-[140em] mx-auto">
       <div className="flex lg:flex-row flex-col justify-center items-center w-full gap-10">
         <div className="relative overflow-hidden min-h-[400px] w-full lg:flex-[0_0_50%]  rounded  object-cover ">
-          <ExportedImage
+          <Image
             src={aboutContents.photoGallery.twoGrid[0].url}
             fill
             sizes="(min-width: 768px) 50vw, (max-width: 768px) 25vw "

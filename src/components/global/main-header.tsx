@@ -1,6 +1,6 @@
 "use client";
 
-import ExportedImage from "next-image-export-optimizer";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { Button } from "../ui/button";
@@ -26,13 +26,13 @@ const MainHeader = ({ theme }: props) => {
   return (
     <header className="md:p-4 md:!px-8 py-5 px-2  absolute top-0 w-full flex items-center justify-between z-10">
       <aside className="flex items-center gap-2 ">
-        <Link href={"/"} className="w-full ">
-          <ExportedImage
+        <Link href={"/"}>
+          <Image
             src={theme ? limaWhite : headerContents.logourl}
             width={80}
             height={80}
             alt=""
-            className="object-cover block "
+            className="object-cover w-full h-full  block "
           />
         </Link>
       </aside>
@@ -42,7 +42,7 @@ const MainHeader = ({ theme }: props) => {
             if (link.label !== "Products") {
               return (
                 <Link
-                  className={clsx("text-[1.125em]  ", {
+                  className={clsx("!text-[1.0625em]  ", {
                     "text-[#fff] font-medium":
                       !pageUrl.includes(link.path) && !theme,
                     "text-[#1e1e1e]": theme,
@@ -61,7 +61,7 @@ const MainHeader = ({ theme }: props) => {
                 <NavigationMenuItem>
                   <NavigationMenuTrigger
                     className={clsx(
-                      "p-0 bg-transparent rounded-none shadow-none text-[1.125em]  hover:!bg-transparent focus:!bg-transparent focus:!outline-none focus:!outline-offset-0",
+                      "p-0 bg-transparent rounded-none shadow-none !text-[1.0625em]  hover:!bg-transparent focus:!bg-transparent focus:!outline-none focus:!outline-offset-0",
                       {
                         "text-[#fff] font-medium  hover:!text-white focus:!text-white ":
                           !pageUrl.includes(link.path) && !theme,
@@ -100,15 +100,17 @@ const MainHeader = ({ theme }: props) => {
           className={clsx(
             "rounded-full  backdrop-blur p-6 sm:flex md:items-center hidden  ",
             {
-              "bg-[#b0d93b] lg:hover:bg-[#a3cc34] border-none": theme,
+              "bg-[#5BC89E] lg:hover:bg-[#5BC89E] text-[#1e1e1e] border-none":
+                theme,
               "border-slate-200/50 bg-white border": !theme,
             }
           )}
         >
           <Link href={"/contact"} className="space-x-3  ">
-            <ExportedImage
+            <Image
               src={headerContents.contactBtn.icon}
               width={16}
+              height={16}
               alt=""
             />
             <span className="text-[#1e1e1e]">

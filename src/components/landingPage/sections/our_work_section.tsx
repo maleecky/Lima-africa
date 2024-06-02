@@ -1,6 +1,6 @@
 "use client";
 
-import ExportedImage from "next-image-export-optimizer";
+import Image from "next/image";
 import LarvaeGreen from "@/../public/assets/media/larvae-r.png";
 import { OurWork } from "@/lib/constants";
 
@@ -19,7 +19,7 @@ function OurWorkSection() {
         </div>
         <div className="absolute top-10% right-[20%]">
           <div className="inline-block bg-[#f3f7fc] border border-slate-200/10 rounded-sm shadow-lg shadow-slate-100 rotate-[100deg] p-1  ">
-            <ExportedImage
+            <Image
               src={LarvaeGreen}
               width={48}
               height={48}

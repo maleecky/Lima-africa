@@ -1,4 +1,4 @@
-import ExportedImage from "next-image-export-optimizer";
+import Image from "next/image";
 import foodWaste from "@/../public/assets/media/food_waste.png";
 import boostIcon from "@/../public/assets/media/boost.png";
 import { customersPitch } from "@/lib/constants";
@@ -16,7 +16,7 @@ const ClientsSection = () => {
         </h2>
         <div>
           <div className="absolute -top-[3rem] right-6 icon">
-            <ExportedImage
+            <Image
               src={boostIcon}
               width={40}
               height={40}
@@ -26,7 +26,7 @@ const ClientsSection = () => {
           </div>
 
           <div className="absolute bottom-[2rem] left-[2rem] icon">
-            <ExportedImage
+            <Image
               src={foodWaste}
               width={40}
               height={40}

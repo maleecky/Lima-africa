@@ -1,4 +1,4 @@
-import ExportedImage from "next-image-export-optimizer";
+import Image from "next/image";
 import wasteManagementImg from "@/../public/assets/media/Group+765.png";
 import SectionTagHeading from "@/components/global/tags-heading";
 import { contactFormContents, serviceContent } from "@/lib/constants";
@@ -15,7 +15,7 @@ const WasteManagement = () => {
         End-to-End Organic Waste Management Service
       </SectionTagHeading>
       <div className="relative h-full w-full max-w-[55em] mx-auto">
-        <ExportedImage
+        <Image
           src={wasteManagementImg}
           height={400}
           alt="end to end waste management"

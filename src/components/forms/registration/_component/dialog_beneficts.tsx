@@ -18,7 +18,7 @@ export default function BenedictsDialog({ btn, children, btnStyles }: props) {
             className={
               btnStyles
                 ? btnStyles
-                : " bg-transparent text-[1em] whitespace-pre-wrap w-full underline underline-offset-2 px-0 hover:bg-transparent "
+                : " bg-transparent text-[1em] shadow-none whitespace-pre-wrap w-full underline underline-offset-2 px-0 hover:bg-transparent "
             }
           >
             {btn}

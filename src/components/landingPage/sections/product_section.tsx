@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { productsContent } from "@/lib/constants";
 import { ArrowRight, ArrowRightCircle } from "lucide-react";
-import ExportedImage from "next-image-export-optimizer";
+import Image from "next/image";
 import Link from "next/link";
 
 const ProductSection = () => {
@@ -31,7 +31,7 @@ const ProductSection = () => {
             <Link href={product.link.path}>
               <Card className="flex border-none  rounded-lg bg-orange-200 overflow-hidden xmd:p-4 max-xmd:py-3  flex-1 h-full z-10  relative  flex-col justify-end  min-w-full  ">
                 <div className="relative flex-1 min-h-[14em]">
-                  <ExportedImage
+                  <Image
                     src={product.img}
                     fill
                     sizes="(min-width: 768px) 50vw, (max-width: 768px) 25vw, 12.5vw"

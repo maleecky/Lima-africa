@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { SDGContents } from "@/lib/constants";
-import ExportedImage from "next-image-export-optimizer";
+import Image from "next/image";
 import BrandValue from "./brand-value";
 
 const SdgSection = () => {
@@ -13,7 +13,7 @@ const SdgSection = () => {
             className="bg-[#C6E156] py-[2.4em] flex flex-col  rounded-2xl border-none shadow-none outline-none px-6"
           >
             <div className="relative sm:w-12 w-8 sm:h-12 h-8 ">
-              <ExportedImage
+              <Image
                 src={content.imgUrl}
                 fill
                 sizes="(min-width: 768px) 20vw, (max-width: 768px) 10vw, 5vw"

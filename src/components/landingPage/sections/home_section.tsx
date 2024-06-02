@@ -4,17 +4,17 @@ import headerLarvae from "@/../public/assets/media/headerlarvae.png";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import ExportedImage from "next-image-export-optimizer";
+import Image from "next/image";
 
 const montserratFont = Montserrat({ weight: "700", subsets: ["latin"] });
 
 const HomeSection = () => {
   return (
     <section className="lg:py-0 py-[35vh] relative lg:h-screen flex flex-col justify-center items-center  w-full text-white">
-      <ExportedImage
+      <Image
         src={headerLarvae}
         fill
-        sizes="(min-width: 768px) 100vw, (max-width: 768px) 50vw, 33vw"
+        sizes="100vw"
         alt=""
         className="object-cover block -z-10 first-letter:"
       />

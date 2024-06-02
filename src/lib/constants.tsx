@@ -203,7 +203,7 @@ export const contactFormContents = {
       link: "https://www.instagram.com/p/C52ruM3IijC/?igsh=Zng2aTVmcTBrbXA1",
       icon: () => {
         return (
-          <InstagramIcon className="sm:text-white text-[#1e1e1e] sm:w-4 max-sm:hover:text-sky-600 " />
+          <InstagramIcon className="text-white w-4 max-sm:hover:text-sky-600 " />
         );
       },
     },
@@ -211,7 +211,7 @@ export const contactFormContents = {
       link: "https://www.linkedin.com/posts/limaafrica_with-the-rising-demand-for-animal-protein-activity-7193521608769073152-wNim?utm_source=share&utm_medium=member_ios",
       icon: () => {
         return (
-          <Linkedin className="sm:text-white text-[#1e1e1e] sm:w-4 max-sm:hover:text-sky-600" />
+          <Linkedin className="text-white w-4 max-sm:hover:text-sky-600" />
         );
       },
     },
@@ -221,7 +221,7 @@ export const contactFormContents = {
         return (
           <TwitterIcon
             width={22}
-            className="sm:text-white text-[#1e1e1e] sm:w-4 max-sm:hover:text-sky-600  "
+            className="text-white w-4 max-sm:hover:text-sky-600  "
           />
         );
       },
@@ -307,23 +307,26 @@ export const distributorFormContents = {
   description:
     " Are you passionate about transforming smallholder farming communities with quality organic manure and affordable livestock feeds? Join us as a distribution agent!",
   Fields: {
-    threeGrid: [
-      { name: "Name", placeholder: "Your full name" },
+    gridTwo: [
+      { name: "Name", placeholder: "Full name", required: true },
       {
         name: "ContactInformation",
-        placeholder: "Phone number | Email address",
+        placeholder: "Email address",
+        required: true,
       },
-      { name: "BusinessName", placeholder: "Your Business name " },
+      { name: "BusinessName", placeholder: "Business name ", required: true },
+      { name: "Location", placeholder: "Business Location ", required: true },
     ],
     cols: [
-      { name: "Location", placeholder: "Your Business Location " },
       {
         name: "Capacity",
-        placeholder: "Your Capacity to Distribute LIMA Products",
+        placeholder: "Capacity to Distribute LIMA Products",
+        required: true,
       },
       {
         name: "Experience",
-        placeholder: "Your Experience in Agricultural or Distribution Business",
+        placeholder: "Experience in Agricultural or Distribution Business",
+        required: true,
       },
     ],
   },
@@ -359,22 +362,32 @@ export const farmerFormContents = {
     "Ready to make a difference in agriculture and the environment? Complete the registration form below and join our network of BSF outgrower!",
   Fields: {
     twoGrid: [
-      { name: "Name", placeholder: "Your full name" },
+      { name: "Name", placeholder: "Your full name", required: true },
       {
         name: "ContactInformation",
-        placeholder: "Phone number | Email address",
+        type: "text",
+        placeholder: "Email address",
+        required: true,
+      },
+      {
+        name: "Location",
+        placeholder: "Your Farm Location",
+        type: "text",
+        required: false,
+      },
+      {
+        name: "Capacity",
+        type: "number",
+        placeholder: "Estimated monthly or annual capacity in kg",
+        required: true,
       },
     ],
     cols: [
-      { name: "Location", placeholder: "Your Farm Location" },
-      {
-        name: "Capacity",
-        placeholder:
-          "Estimated monthly or annual production capacity in kilograms",
-      },
       {
         name: "Experience",
-        placeholder: "Share your experience in farming",
+        type: "number",
+        placeholder: "Experience in farming",
+        required: false,
       },
     ],
   },

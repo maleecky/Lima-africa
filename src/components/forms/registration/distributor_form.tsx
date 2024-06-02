@@ -6,6 +6,7 @@ import {
   FormControl,
   FormField,
   FormItem,
+  FormLabel,
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
@@ -14,7 +15,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import dynamic from "next/dynamic";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { toast } from "@/components/ui/use-toast";
 
 const BenedictsDialog = dynamic(() => import("./_component/dialog_beneficts"));
@@ -27,8 +28,10 @@ const FormSchema = z.object({
   Capacity: z.string().min(1),
   Experience: z.string().min(1),
 });
+type FormSchemaType = z.infer<typeof FormSchema>;
 
 const DistributorForm = () => {
+  const router = useRouter();
   const form = useForm<z.infer<typeof FormSchema>>({
     mode: "onChange",
     resolver: zodResolver(FormSchema),
@@ -42,21 +45,25 @@ const DistributorForm = () => {
     },
   });
 
-  const submitHandler = () => {
-    redirect("/");
+  const submitHandler = ({ values: FormSchemaType }) => {
     toast({
       title: "Success",
       description: "The message is sent",
     });
+    form.reset();
+    router.refresh();
   };
 
   const isLoading = form.formState.isSubmitting;
   return (
-    <div className="flex lg:flex-row flex-col lg:bg-[#f1f7fd] lg:p-6 lg:max-w-[70em] max-w-full lg:gap-12 my-[5em] rounded-2xl  ">
-      <div className="lg:flex-[0_0_50%] lg:pl-4  w-full lg:flex hidden">
-        <div className="flex flex-col gap-4">
+    <div className="flex lg:p-6 lg:max-w-[70em] max-w-full lg:gap-12 mt-[4em] rounded-2xl  ">
+      <div className=" px-6 !py-[2em] bg-[#5BC89E] rounded-2xl w-full min-[950px]:flex hidden">
+        <div
+          className="flex flex-col gap-6
+        "
+        >
           <h3
-            className="text-[#1e1e1e] font-medium   block w-full text-xl"
+            className="text-[#1e1e1e] font-medium  block w-full text-xl"
             aria-hidden="true"
           >
             {distributorFormContents.benefitsAccordionTriggerlabel}
@@ -74,14 +81,11 @@ const DistributorForm = () => {
           </ul>
         </div>
       </div>
-      <div className="lg:flex-[0_0_50%] flex-[0_0_100%] w-full bg-[#B5D823] flex justify-center items-center rounded-2xl lg:p-10 sm:p-8 p-4 max-lg:!py-[2em]">
-        <div className="w-full">
-          <Card className="z-10  border-none bg-transparent ">
-            <CardHeader className="p-0  text-[#1e1e1e]  ">
-              <h3 className="lg:hidden block text-xl  max-lg:text-center font-semibold">
-                {distributorFormContents.formAccordionTriggerlabel}
-              </h3>
-              <p className="max-lg:pt-4 text-[1.125em] lg:text-medium leading-[1.3]">
+      <div className="w-full flex justify-center  rounded-2xl  ">
+        <div className="w-full ">
+          <Card className="z-10 w-full p-6  max-[950px]:border border-none max-[950px]:shadow shadow-none  bg-transparent ">
+            <CardHeader className="p-0 mb-5  text-[#1e1e1e]  ">
+              <p className=" text-[1.125em] lg:text-medium leading-[1.3]">
                 {distributorFormContents.description}
               </p>
             </CardHeader>
@@ -91,10 +95,10 @@ const DistributorForm = () => {
                   onSubmit={form.handleSubmit(submitHandler)}
                   className="space-y-5 w-full "
                 >
-                  <div className=" flex flex-col w-full  justify-center items-center space-y-4">
-                    <div className="space-y-4 w-full">
-                      <div className="grid xlg:grid-cols-3 grid-cols-2 max-sm:grid-cols-1 gap-2 w-full items-center justify-between">
-                        {distributorFormContents.Fields.threeGrid.map(
+                  <div className=" flex flex-col w-full justify-center space-y-4">
+                    <div className="space-y-8 w-full">
+                      <div className="grid xmd:grid-cols-2 grid-cols-1 gap-8 w-full justify-between">
+                        {distributorFormContents.Fields.gridTwo.map(
                           (item, index) => (
                             <FormField
                               key={index}
@@ -103,13 +107,20 @@ const DistributorForm = () => {
                               //@ts-ignore
                               name={item.name}
                               render={({ field }) => (
-                                <FormItem className="w-full">
+                                <FormItem className="w-full flex flex-col gap-[2px] relative">
+                                  <FormLabel className=" [min-950px]:w-max flex items-start justify-start w-full  p-0">
+                                    <p className="text-left">
+                                      {item.placeholder}{" "}
+                                      {item.required && (
+                                        <span className="text-red-800">*</span>
+                                      )}
+                                    </p>
+                                  </FormLabel>
                                   <FormControl>
                                     <Input
-                                      placeholder={item.placeholder}
                                       type="text"
                                       {...field}
-                                      className="border placeholder:text-[13px]  border-[#4a704165] bg-[#C6E156]  focus:outline-none focus-visible:ring-0 focus-visible:ring-sky-600 focus:border-sky-600"
+                                      className="border focus:outline-none focus-visible:ring-0 focus-visible:ring-sky-600 focus:border-sky-600"
                                     />
                                   </FormControl>
                                   <FormMessage />
@@ -128,13 +139,20 @@ const DistributorForm = () => {
                             //@ts-ignore
                             name={item.name}
                             render={({ field }) => (
-                              <FormItem>
+                              <FormItem className="w-full flex flex-col gap-[2px] relative">
+                                <FormLabel className=" [min-950px]:w-max flex items-start justify-start w-full  p-0">
+                                  <p className="text-left">
+                                    {item.placeholder}
+                                    {item.required && (
+                                      <span className="text-red-800">*</span>
+                                    )}
+                                  </p>
+                                </FormLabel>
                                 <FormControl>
                                   <Input
-                                    placeholder={item.placeholder}
                                     {...field}
                                     type="text"
-                                    className="border placeholder:text-[13px] border-[#4a704165] bg-[#C6E156]  focus:outline-none focus-visible:ring-0 focus-visible:ring-sky-600 focus:border-sky-600"
+                                    className="border focus:outline-none focus-visible:ring-0 focus-visible:ring-sky-600 focus:border-sky-600"
                                   />
                                 </FormControl>
                                 <FormMessage />
@@ -146,12 +164,12 @@ const DistributorForm = () => {
                     </div>
                   </div>
                   <Button
-                    className=" px-4 bg-[#022F35] max-w-[200px] w-full "
+                    className=" px-4 !mt-[4em]  bg-[#022F35] xmd:max-w-[200px] w-full "
                     type="submit"
                   >
                     {distributorFormContents.submitBtn.label}
                   </Button>
-                  <div className="lg:hidden  w-full">
+                  <div className="min-[950px]:hidden !mt-[2em]  w-full">
                     <BenedictsDialog
                       btn={
                         distributorFormContents.benefitsAccordionTriggerlabel

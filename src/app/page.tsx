@@ -13,19 +13,27 @@ import ImpactsSection from "@/components/landingPage/sections/impacts_section";
 import TestimonialsSection from "@/components/landingPage/sections/tetimonials_section";
 import ClientsSection from "@/components/landingPage/sections/clients_section";
 import CollaborateSection from "@/components/landingPage/sections/collaborate_section";
-import { useEffect, useState } from "react";
-import LoadingComponent from "@/components/global/loading";
+import { useEffect } from "react";
 
 export default function Home() {
-  const [contentshown, setContentshown] = useState(false);
-
   useEffect(() => {
-    setContentshown(true);
-  }, []);
+    const handleScroll = () => {
+      if (window.location.hash) {
+        const id = window.location.hash.substring(1);
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    };
 
-  if (!contentshown) {
-    return <LoadingComponent />;
-  }
+    handleScroll();
+
+    window.addEventListener("hashchange", handleScroll);
+    return () => {
+      window.removeEventListener("hashchange", handleScroll);
+    };
+  }, []);
 
   return (
     <>

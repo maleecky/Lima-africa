@@ -1,6 +1,6 @@
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { testimonialsContents } from "@/lib/constants";
-import ExportedImage from "next-image-export-optimizer";
+import Image from "next/image";
 import quotationTag from "@/../public/assets/media/Double_quotation_marks.png";
 import {
   NextButton,
@@ -41,7 +41,7 @@ const TestimonialsSection = () => {
                   "embla__slide flex relative bg-[#EFF7FF]  border-0 flex-col !p-4 !pt-6  "
                 }
               >
-                <ExportedImage
+                <Image
                   src={quotationTag}
                   width={16}
                   height={16}
@@ -53,7 +53,7 @@ const TestimonialsSection = () => {
                 </CardContent>
                 <CardFooter className="flex absolute min-[268px]:flex-row flex-col-reverse  left-0 justify-between max-[298px]:gap-1  bottom-6 !px-5 items-start  w-full !py-0 mt-auto min-[268px]:items-center">
                   <div className="flex items-center space-x-2">
-                    <ExportedImage
+                    <Image
                       src={testimonial.photo.url}
                       height={50}
                       width={50}
