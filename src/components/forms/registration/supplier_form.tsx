@@ -39,7 +39,6 @@ const FormSchema = z.object({
   Capacity: z.coerce.number().min(1),
   Experience: z.coerce.number(),
 });
-type FormSchemaType = z.infer<typeof FormSchema>;
 
 const SupplierForm = () => {
   const router = useRouter();
@@ -55,7 +54,7 @@ const SupplierForm = () => {
     },
   });
 
-  const submitHandler = (values: FormSchemaType) => {
+  const submitHandler = () => {
     toast({
       title: "Success",
       description: "The message is sent",

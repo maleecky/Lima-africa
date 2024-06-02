@@ -33,7 +33,6 @@ type props = {
   productId?: number;
   productName?: string;
 };
-type FormSchemaType = z.infer<typeof FormSchema>;
 
 const ProductPage = ({ productId, productName }: props) => {
   const router = useRouter();
@@ -58,7 +57,7 @@ const ProductPage = ({ productId, productName }: props) => {
     },
   });
 
-  const submitHandler = (values: FormSchemaType) => {
+  const submitHandler = () => {
     toast({
       title: "Success",
       description: "The message is sent",

@@ -36,8 +36,6 @@ const FormSchema = z.object({
   contactAgreement: z.boolean().default(false),
 });
 
-type FormSchemaType = z.infer<typeof FormSchema>;
-
 type Props = {
   hideCss?: string;
 };
@@ -58,7 +56,7 @@ const ContactForm = ({ hideCss }: Props) => {
     },
   });
 
-  const submitHandler = (values: FormSchemaType) => {
+  const submitHandler = () => {
     toast({
       title: "Success",
       description: "The message is sent",
