@@ -10,7 +10,7 @@ const montserratFont = Montserrat({ weight: "700", subsets: ["latin"] });
 
 const HomeSection = () => {
   return (
-    <section className="lg:py-0 py-[35vh] relative lg:h-screen flex flex-col justify-center items-center  w-full text-white">
+    <section className="lg:py-0 max-lg:pt-[24vh] max-lg:pb-[30vh] relative lg:h-screen flex flex-col justify-center items-center  w-full text-white">
       <Image
         src={headerLarvae}
         fill
@@ -27,7 +27,7 @@ const HomeSection = () => {
               {homepageContents.mainHeading.map((heading, index) => (
                 <h1
                   key={index}
-                  className={`${montserratFont.className} w-full block whitespace-pre-wrap md:text-[3.5em] max-md:text-[2.75em] max-xmd:text-[2.175em] max-[250px]:text-[1.6em]  font-semibold xmd:tracking-wide`}
+                  className={`${montserratFont.className} w-full block whitespace-pre-wrap min-[695px]:text-[3.5em]  text-[min(11vw,2.8em)] max-md:leading-[min(12vw,50px)] font-semibold tracking-wide `}
                 >
                   {heading}
                 </h1>
@@ -45,7 +45,7 @@ const HomeSection = () => {
             </div>
           </div>
           <Button
-            className="bg-[#B0D93B] xmd:w-max hover:bg-[#B0D93D] max-sm:text-xs text-black max-[192px]:whitespace-normal flex space-x-2 max-[192px]:text-center !h-0 !p-6  rounded-full"
+            className="bg-[#d4ffe3] hover:bg-[#d4ffe3] backdrop-blur-[4px] w-max max-sm:text-xs text-black max-[192px]:whitespace-normal flex space-x-2 max-[192px]:text-center !h-0 !p-6  rounded-full"
             asChild
           >
             <Link href="/products/bsf_dried" className="hover-arrow-animate">

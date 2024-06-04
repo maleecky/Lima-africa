@@ -26,13 +26,16 @@ const MainHeader = ({ theme }: props) => {
   return (
     <header className="md:p-4 md:!px-8 py-5 px-2  absolute top-0 w-full flex items-center justify-between z-10">
       <aside className="flex items-center gap-2 ">
-        <Link href={"/"}>
+        <Link
+          href={"/"}
+          className="relative md:w-20 md:h-20 w-[4.5em] h-[4.5em]"
+        >
           <Image
             src={theme ? limaWhite : headerContents.logourl}
-            width={80}
-            height={80}
+            fill
+            sizes="100vw"
             alt=""
-            className="object-cover w-full h-full  block "
+            className="object-contain w-full h-full"
           />
         </Link>
       </aside>
@@ -98,11 +101,11 @@ const MainHeader = ({ theme }: props) => {
           asChild
           variant={"outline"}
           className={clsx(
-            "rounded-full  backdrop-blur p-6 sm:flex md:items-center hidden  ",
+            "rounded-full !h-0  backdrop-blur md:p-5 p-[1.5em] sm:flex md:items-center hidden  ",
             {
               "bg-[#5BC89E] lg:hover:bg-[#5BC89E] text-[#1e1e1e] border-none":
                 theme,
-              "border-slate-200/50 bg-white border": !theme,
+              " bg-[#d4ffe3]": !theme,
             }
           )}
         >
