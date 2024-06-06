@@ -5,21 +5,22 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
+import SlidesBg from "../bg-slides/slides_bg";
 
 const montserratFont = Montserrat({ weight: "700", subsets: ["latin"] });
 
 const HomeSection = () => {
   return (
     <section className="lg:py-0 max-lg:pt-[24vh] max-lg:pb-[30vh] relative lg:h-screen flex flex-col justify-center items-center  w-full text-white">
-      <Image
+      <SlidesBg />
+      {/* <Image
         src={headerLarvae}
         fill
         sizes="100vw"
         alt=""
         className="object-cover block -z-10 first-letter:"
-      />
-      <div className="absolute top-0 bottom-0 left-0 right-0 z-[-10] backdrop-blur-[1px] bg-[#0c36238a]"></div>
-      <div className="flex-1 max-w-[2500px] mx-auto w-full relative flex justify-center flex-col md:px-8 px-4 ">
+      /> */}
+      <div className="flex-1 max-w-[2500px] mx-auto w-full overflow-hidden relative flex justify-center flex-col md:px-8 px-4 z-20">
         <div className="flex flex-col gap-4">
           <p className="text-sm">{homepageContents.welcomeNote}</p>
           <div className="pb-4 max-xmd:pb-[2.5em] w-full flex flex-col gap-4">

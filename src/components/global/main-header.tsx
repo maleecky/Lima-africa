@@ -24,7 +24,7 @@ const MainHeader = ({ theme }: props) => {
   const pageUrl = usePathname();
 
   return (
-    <header className="md:p-4 md:!px-8 py-5 px-2  absolute top-0 w-full flex items-center justify-between z-10">
+    <header className="md:p-4 md:!px-8 py-5 px-2  absolute top-0 w-full flex items-center justify-between z-50">
       <aside className="flex items-center gap-2 ">
         <Link
           href={"/"}
@@ -40,7 +40,7 @@ const MainHeader = ({ theme }: props) => {
         </Link>
       </aside>
       <nav className="hidden min-[990px]:block absolute left-[50%] transform translate-x-[-50%] ">
-        <ul className="flex items-center py-1.5 px-8  backdrop-blur justify-center gap-8 rounded-3xl text-nowrap">
+        <ul className="flex items-center py-1.5 px-8  justify-center gap-8 rounded-3xl text-nowrap">
           {headerContents.links.map((link, index) => {
             if (link.label !== "Products") {
               return (

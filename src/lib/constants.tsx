@@ -1,5 +1,5 @@
 import HandWave from "@/../public/assets/media/hand-wave.svg";
-import { headerContentsType } from "./types";
+
 import {
   ArchiveIcon,
   ExpandIcon,
@@ -10,6 +10,7 @@ import {
   RocketIcon,
   SearchCheckIcon,
   TwitterIcon,
+  XIcon,
 } from "lucide-react";
 import blackSoldierImgProduct from "@/../public/assets/media/MAGUNIA MOCKUP.png";
 import blackSoldier from "@/../public/assets/media/bsf-w.png";
@@ -43,6 +44,10 @@ import Boost from "@/../public/assets/media/inflation_5623036.png";
 import ProductionImg from "@/../public/assets/media/recyclable_5199669.png";
 import climateImg from "@/../public/assets/media/home_5663134.png";
 import atmosphereImg from "@/../public/assets/media/atmosphere_10972616.png";
+import bgFirst from "@/../public/assets/media/bg1.jpg";
+import bgSecond from "@/../public/assets/media/bg2.jpg";
+import bgThird from "@/../public/assets/media/bg3.jpg";
+import bgFouth from "@/../public/assets/media/bg4.jpg";
 
 export const serviceContent = {
   vision:
@@ -160,7 +165,7 @@ export const impactsSection = {
   ],
 };
 
-export const headerContents: headerContentsType = {
+export const headerContents = {
   logourl: limaWhite,
 
   links: [
@@ -177,6 +182,7 @@ export const headerContents: headerContentsType = {
     { label: "Services", path: "/services", productList: [] },
     { label: "Partners", path: "/#partners", productList: [] },
     { label: "Testimonials", path: "/#testimonials", productList: [] },
+    { label: "Resources", path: "/#resources", productList: [] },
   ],
   contactBtn: { label: "Get in touch", path: "/contact", icon: HandWave },
 };
@@ -219,10 +225,36 @@ export const contactFormContents = {
       link: "https://x.com/limaafrica_/status/1780870612275126728?s=46&t=hSwQBSt95eH9q7ctcZUAwg",
       icon: () => {
         return (
-          <TwitterIcon
-            width={22}
-            className="text-white w-4 max-sm:hover:text-sky-600  "
-          />
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 32 32"
+            fill="none"
+            className="w-4 "
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <mask
+              id="mask0_383_12"
+              maskUnits="userSpaceOnUse"
+              x="0"
+              y="0"
+              width="32"
+              height="32"
+            >
+              <path d="M0 0H32V32H0V0Z" fill="white" />
+            </mask>
+            <g mask="url(#mask0_383_12)">
+              <path
+                d="M25.2 1.49951H30.1074L19.3874 13.7829L32 30.5007H22.1257L14.3863 20.3635L5.54057 30.5007H0.628571L12.0937 17.3578L0 1.5018H10.1257L17.1109 10.7658L25.2 1.49951ZM23.4743 27.5567H26.1943L8.64 4.29037H5.72343L23.4743 27.5567Z"
+                fill="white"
+              />
+            </g>
+          </svg>
+
+          // <XIcon
+          //   width={22}
+          //   className="text-white w-4 max-sm:hover:text-sky-600  "
+          // />
         );
       },
     },
@@ -641,6 +673,13 @@ export const homepageContents = {
   mainDescription: [
     "Empowering smallholder farmers with",
     "innovative and sustainable solutions.",
+  ],
+
+  homeSlides: [
+    { url: bgFirst },
+    { url: bgSecond },
+    { url: bgThird },
+    { url: bgFouth },
   ],
   registrationCards: [
     {
