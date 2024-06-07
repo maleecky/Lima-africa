@@ -22,6 +22,7 @@ const SlidesCarousel = ({ slides, options }: props) => {
               key={index}
               src={slide.url}
               width={1200}
+              height={1200}
               alt=""
               className={styles.embla__slide}
             />

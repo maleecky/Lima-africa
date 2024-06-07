@@ -16,7 +16,7 @@ import blackSoldierImgProduct from "@/../public/assets/media/MAGUNIA MOCKUP.png"
 import blackSoldier from "@/../public/assets/media/bsf-w.png";
 import limaOrganicFertilizer from "@/../public/assets/media/MAGUNIA MOCKUP 2.png";
 import PeopleStanding from "@/../public/assets/media/standing_about_1.jpg";
-import GreenhouseNet from "@/../public/assets/media/net_greenhouse.jpg";
+import GreenhouseNet from "@/../public/assets/media/celebrates.jpg";
 import MosqueShade from "@/../public/assets/media/shade.jpg";
 import personAvatar from "@/../public/assets/media/person.svg";
 import EnnovateLogo from "../../public/assets/media/ennovatelogo.png";

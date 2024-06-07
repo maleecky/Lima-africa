@@ -21,6 +21,7 @@
   position: relative;
   display: flex;
   touch-action: pan-y pinch-zoom;
+  height: 100%;
   margin-left: calc(var(--slide-spacing) * -1);
 }
 .embla__slide {
@@ -29,6 +30,6 @@
   padding-left: var(--slide-spacing);
   object-fit: cover;
   width: 100%;
-  min-height: 100vh;
+  height: 100%;
   object-position: center;
 }

@@ -32,7 +32,10 @@ const Contact = ({ hideCss }: props) => {
         </Button>
         <GoogleMaps />
         <div className="mt-8 max-sm:flex-col flex-row flex xmd:gap-20 gap-10">
-          <div className="space-y-1">
+          <Link
+            href={`mailto:${contactFormContents.contactsInformation[1].label}`}
+            className="space-y-1"
+          >
             <div>
               <Mail className="w-8 h-8" />
               <h4 className="text-[1.125em] font-medium ">Email</h4>
@@ -40,8 +43,11 @@ const Contact = ({ hideCss }: props) => {
             <p className="text-sm">
               {contactFormContents.contactsInformation[1].label}
             </p>
-          </div>
-          <div className="space-y-1">
+          </Link>
+          <Link
+            href={`tel:${contactFormContents.contactsInformation[0].label}`}
+            className="space-y-1"
+          >
             <div>
               <PhoneCall className="w-8 h-8" />
               <h4 className="text-[1.125em] font-medium">Phone</h4>
@@ -49,7 +55,7 @@ const Contact = ({ hideCss }: props) => {
             <p className="text-sm">
               {contactFormContents.contactsInformation[0].label}
             </p>
-          </div>
+          </Link>
         </div>
       </div>
       <ContactForm hideCss={hideCss} />

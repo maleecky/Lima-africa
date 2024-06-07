@@ -36,9 +36,9 @@ function OurWorkSection() {
       ref={containerRef}
       animate={mainControls}
       initial="hidden"
-      className="w-full flex xmd:justify-center xmd:items-center lg:max-w-[93.75em]  mx-auto"
+      className="w-full hidden xmd:justify-center xmd:items-center lg:max-w-[93.75em]  mx-auto"
     >
-      <div className="py-[7.5em] lg:px-14 px-4 relative lg:max-w-[65em] max-lg:w-full   ">
+      <div className="py-[7.5em] lg:px-20 md:px-12 px-6 relative lg:max-w-[70em] max-lg:w-full   ">
         <div>
           <h2 className="min-[990px]:text-[min(2.5vw,1.8em)] md:text-[1.8em] sm:text-[1.5em] text-[1.25em] max-[998px]:leading-[1.5em] max-sm:leading-[1.4]  text-green-950 xmd:font-medium font-normal min-[998px]:leading-[1.4em]">
             {OurWork.map((work, i) => (

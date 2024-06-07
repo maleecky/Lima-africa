@@ -13,13 +13,6 @@ const HomeSection = () => {
   return (
     <section className="lg:py-0 max-lg:pt-[24vh] max-lg:pb-[30vh] relative lg:h-screen flex flex-col justify-center items-center  w-full text-white">
       <SlidesBg />
-      {/* <Image
-        src={headerLarvae}
-        fill
-        sizes="100vw"
-        alt=""
-        className="object-cover block -z-10 first-letter:"
-      /> */}
       <div className="flex-1 max-w-[2500px] mx-auto w-full overflow-hidden relative flex justify-center flex-col md:px-8 px-4 z-20">
         <div className="flex flex-col gap-4">
           <p className="text-sm">{homepageContents.welcomeNote}</p>
