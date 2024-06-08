@@ -1,6 +1,7 @@
 import { serviceContent } from "@/lib/constants";
 import Image from "next/image";
 import Food from "@/../public/assets/media/foods.jpg";
+import Reveal from "@/components/global/reveal";
 
 const LandingSection = () => {
   return (
@@ -8,7 +9,7 @@ const LandingSection = () => {
       <Image
         src={Food}
         fill
-        sizes="100vw"
+        sizes="(min-width:768px) 100vw"
         alt=""
         className="object-cover  block -z-10"
       />
@@ -16,11 +17,13 @@ const LandingSection = () => {
       <div>
         <div className="w-full flex flex-col items-center justify-center pt-[4em] gap-10 sm:max-w-[65em] max-sm:max-w-full max-auto">
           <h1 className="text-4xl max-w-[20em] font-semibold leading-[1em] z-[10] lg:text-[3em] text-[#ffffff] text-center  whitespace-wrap">
-            <div>{serviceContent.pitch[0].title}</div>
+            <Reveal>{serviceContent.pitch[0].title}</Reveal>
           </h1>
-          <p className="lg:text-[1.25em] text-base">
-            {serviceContent.pitch[0].description}
-          </p>
+          <Reveal>
+            <p className="lg:text-[1.25em] text-base">
+              {serviceContent.pitch[0].description}
+            </p>
+          </Reveal>
         </div>
       </div>
     </section>

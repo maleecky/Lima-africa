@@ -31,6 +31,7 @@ import * as z from "zod";
 import BenedictsDialog from "./_component/dialog_beneficts";
 import { redirect, useRouter } from "next/navigation";
 import { toast } from "@/components/ui/use-toast";
+import Reveal from "@/components/global/reveal";
 
 const FormSchema = z.object({
   Name: z.string().min(2),
@@ -66,22 +67,26 @@ const SupplierForm = () => {
   const isLoading = form.formState.isSubmitting;
   return (
     <div className="flex lg:p-6 lg:max-w-[70em] max-w-full lg:gap-12 mt-[4em] rounded-2xl  ">
-      <div className=" px-6 !py-[2em] bg-[#5BC89E] rounded-2xl w-full min-[950px]:flex hidden">
-        <div className="flex flex-col gap-6">
-          <h3
-            className="text-[#1e1e1e] font-medium   block w-full text-xl"
-            aria-hidden="true"
-          >
-            {farmerFormContents.benefitsAccordionTriggerlabel}
-          </h3>
+      <div className=" px-6 !py-[2em] bg-[#0C3623] rounded-2xl w-full min-[950px]:flex hidden">
+        <div className="flex flex-col gap-10">
+          <Reveal>
+            <h3
+              className="text-[#fff] font-medium   block w-full text-xl"
+              aria-hidden="true"
+            >
+              {farmerFormContents.benefitsAccordionTriggerlabel}
+            </h3>
+          </Reveal>
 
           <ul>
-            <div className="w-full  leading-[1.5] text-[#1e1e1e] lg:max-w-[500px] overflow-y-auto text-sm flex flex-col gap-4">
+            <div className="w-full  leading-[1.5] text-[#fff] lg:max-w-[500px] overflow-y-auto text-sm flex flex-col gap-4">
               {farmerFormContents.benefits.map((benefit, index) => (
                 <div key={index}>
-                  <p className="lg:text-[1.25em] text-[1.125em]">
-                    {benefit.label}
-                  </p>
+                  <Reveal>
+                    <p className="lg:text-[1.25em] text-[1.125em]">
+                      {benefit.label}
+                    </p>
+                  </Reveal>
                 </div>
               ))}
             </div>

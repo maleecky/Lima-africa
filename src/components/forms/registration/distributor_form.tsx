@@ -17,6 +17,7 @@ import * as z from "zod";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import { toast } from "@/components/ui/use-toast";
+import Reveal from "@/components/global/reveal";
 
 const BenedictsDialog = dynamic(() => import("./_component/dialog_beneficts"));
 
@@ -56,25 +57,27 @@ const DistributorForm = () => {
   const isLoading = form.formState.isSubmitting;
   return (
     <div className="flex lg:p-6 lg:max-w-[70em] max-w-full lg:gap-12 mt-[4em] rounded-2xl  ">
-      <div className=" px-6 !py-[2em] bg-[#5BC89E] rounded-2xl w-full min-[950px]:flex hidden">
+      <div className=" px-6 !py-[2em] bg-[#0C3623] rounded-2xl w-full min-[950px]:flex hidden">
         <div
-          className="flex flex-col gap-6
+          className="flex flex-col gap-10
         "
         >
-          <h3
-            className="text-[#1e1e1e] font-medium  block w-full text-xl"
-            aria-hidden="true"
-          >
-            {distributorFormContents.benefitsAccordionTriggerlabel}
-          </h3>
+          <Reveal>
+            <h3
+              className="text-[#fff] font-medium  block w-full text-xl"
+              aria-hidden="true"
+            >
+              {distributorFormContents.benefitsAccordionTriggerlabel}
+            </h3>
+          </Reveal>
           <ul>
-            <div className="w-full  leading-[1.5] text-[#1e1e1e] lg:max-w-[500px]  overflow-y-auto text-sm flex flex-col gap-4">
+            <div className="w-full  leading-[1.5] text-[#fff] lg:max-w-[500px]  overflow-y-auto text-sm flex flex-col gap-4">
               {distributorFormContents.benefits.map((benefit, index) => (
-                <div key={index}>
+                <Reveal key={index}>
                   <p className="lg:text-[1.25em] text-[1.125em] ">
                     {benefit.label}
                   </p>
-                </div>
+                </Reveal>
               ))}
             </div>
           </ul>
@@ -83,11 +86,11 @@ const DistributorForm = () => {
       <div className="w-full flex justify-center  rounded-2xl  ">
         <div className="w-full ">
           <Card className="z-10 w-full p-6  max-[950px]:border border-none max-[950px]:shadow shadow-none  bg-transparent ">
-            <CardHeader className="p-0 mb-5  text-[#1e1e1e]  ">
+            <Reveal styles="p-0 mb-5  text-[#1e1e1e]  ">
               <p className=" text-[1.125em] lg:text-medium leading-[1.3]">
                 {distributorFormContents.description}
               </p>
-            </CardHeader>
+            </Reveal>
             <CardContent className="p-0 !pt-4">
               <Form {...form}>
                 <form

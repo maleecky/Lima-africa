@@ -11,35 +11,13 @@ import useEmblaCarousel from "embla-carousel-react";
 import SectionTagHeading from "@/components/global/tags-heading";
 import Autoplay from "embla-carousel-autoplay";
 import { motion } from "framer-motion";
+import Reveal from "@/components/global/reveal";
+import ListReveal, { itemVariant } from "@/components/global/list-reveal";
 
 const TestimonialsSection = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ slidesToScroll: "auto" }, [
     Autoplay(),
   ]);
-  const container = {
-    hidden: {
-      scale: 1,
-      opacity: 1,
-    },
-    visible: {
-      scale: 1,
-      opacity: 1,
-      transition: {
-        delayChildren: 1,
-        staggerChildren: 0.2,
-      },
-    },
-  };
-  const item = {
-    hidden: {
-      scale: 0,
-      opacity: 1,
-    },
-    visible: {
-      scale: 1,
-      opacity: 1,
-    },
-  };
 
   const {
     prevBtnDisabled,
@@ -54,22 +32,22 @@ const TestimonialsSection = () => {
     >
       <div className="w-full relative ">
         <div className="space-y-1 mb-4 flex justify-center items-center flex-col w-full">
-          <SectionTagHeading width="max-w-[20em]">
-            {testimonialsContents.description}
-          </SectionTagHeading>
+          <Reveal>
+            <SectionTagHeading width="max-w-[20em]">
+              {testimonialsContents.description}
+            </SectionTagHeading>
+          </Reveal>
         </div>
       </div>
       <div className="embla">
         <div className="embla__viewport" ref={emblaRef}>
-          <motion.div
-            variants={container}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="embla__container  "
-          >
+          <ListReveal styles="embla__container  ">
             {testimonialsContents.testimonials.map((testimonial, index) => (
-              <motion.div variants={item} className="embla__slide" key={index}>
+              <motion.div
+                variants={itemVariant}
+                className="embla__slide"
+                key={index}
+              >
                 <Card
                   className={
                     "flex relative bg-[#EFF7FF] rounded-2xl h-full  border-0 flex-col !p-4 !pt-6  "
@@ -131,7 +109,7 @@ const TestimonialsSection = () => {
                 </Card>
               </motion.div>
             ))}
-          </motion.div>
+          </ListReveal>
         </div>
         <div className="embla__controls min-[720px]:!flex !hidden">
           <div className="embla__buttons">

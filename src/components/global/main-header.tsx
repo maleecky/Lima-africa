@@ -33,7 +33,7 @@ const MainHeader = ({ theme }: props) => {
           <Image
             src={theme ? limaWhite : headerContents.logourl}
             fill
-            sizes="100vw"
+            sizes="(min-width:768px) 100vw"
             alt=""
             className="object-contain w-full h-full"
           />
@@ -45,7 +45,7 @@ const MainHeader = ({ theme }: props) => {
             if (link.label !== "Products") {
               return (
                 <Link
-                  className={clsx("!text-[1.0625em]  ", {
+                  className={clsx("!text-[1.1625em]  ", {
                     "text-[#fff] font-medium":
                       !pageUrl.includes(link.path) && !theme,
                     "text-[#1e1e1e]": theme,
@@ -64,7 +64,7 @@ const MainHeader = ({ theme }: props) => {
                 <NavigationMenuItem>
                   <NavigationMenuTrigger
                     className={clsx(
-                      "p-0 bg-transparent rounded-none shadow-none !text-[1.0625em]  hover:!bg-transparent focus:!bg-transparent focus:!outline-none focus:!outline-offset-0",
+                      "p-0 bg-transparent rounded-none shadow-none !text-[1.1625em]  hover:!bg-transparent focus:!bg-transparent focus:!outline-none focus:!outline-offset-0",
                       {
                         "text-[#fff] font-medium  hover:!text-white focus:!text-white ":
                           !pageUrl.includes(link.path) && !theme,
@@ -103,7 +103,7 @@ const MainHeader = ({ theme }: props) => {
           className={clsx(
             "rounded-full !h-0  backdrop-blur md:p-5 p-[1.5em] sm:flex md:items-center hidden  ",
             {
-              "bg-[#5BC89E] lg:hover:bg-[#5BC89E] text-[#1e1e1e] border-none":
+              "bg-transparent lg:hover:bg-[#5BC89E] text-[#1e1e1e] border border-[#5BC89E]":
                 theme,
               " bg-[#d4ffe3]": !theme,
             }

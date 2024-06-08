@@ -23,6 +23,8 @@ import { toast } from "@/components/ui/use-toast";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import SectionTagHeading from "@/components/global/tags-heading";
+import Reveal from "@/components/global/reveal";
+import ImageReveal from "@/components/global/image-reveal";
 
 const FormSchema = z.object({
   name: z.string().min(2),
@@ -93,22 +95,10 @@ const ProductPage = ({ productId, productName }: props) => {
       <div className="max-w-[2000px] mx-auto w-full">
         <section className="flex min-[860px]:flex-row flex-col min-[860px]:max-w-[70em] max-w-full min-[860px]:gap-20 gap-10 mt-[5em] rounded-lg  ">
           <div className="relative flex-[0_0_50%] [min-860px]:max-w-[600px] min-w-[10em] min-h-[20em] max-xs:min-h-[10em] p-4 rounded-2xl bg-[#0C3623]  text-[#1e1e1e] min-[860px]:flex-[0_0_50%]  w-full ">
-            <motion.div
-              initial={{ y: -20, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1, transition: { delay: 0.3 } }}
-              className="text-sm absolute top-[8px] left-[8px] bg-[#C6E156] rounded-2xl py-2 px-4  "
-            >
+            <Reveal styles="text-sm absolute top-[8px] left-[8px] bg-[#C6E156] rounded-2xl py-2 px-4  ">
               Lima Product
-            </motion.div>
-            <motion.div
-              initial={{ scale: 0, opacity: 0 }}
-              whileInView={{
-                scale: 1,
-                opacity: 1,
-                transition: { delay: 0.5, type: "spring", damping: 20 },
-              }}
-              className="absolute h-full left-0 top-0 w-full flex justify-center items-center"
-            >
+            </Reveal>
+            <ImageReveal styles="absolute h-full left-0 top-0 w-full flex justify-center items-center">
               <Image
                 //@ts-ignore
                 src={displayedProduct().img}
@@ -117,63 +107,44 @@ const ProductPage = ({ productId, productName }: props) => {
                 alt="hero image "
                 className="object-contain w-full  h-full object-center  "
               />
-            </motion.div>
+            </ImageReveal>
           </div>
-          <motion.div
-            variants={paragraphVariant}
-            initial="paraHidden"
-            whileInView="paraVisible"
-            transition={{ delay: 1, ease: "easeIn" }}
-            className="min-[860px]:flex-[0_0_50%] flex-[0_0_100%] w-full flex flex-col"
-          >
-            <motion.div
-              variants={paragraphVariant}
-              initial="paraHidden"
-              whileInView="paraVisible"
-              transition={{ delay: 1, ease: "easeIn" }}
-              className="flex flex-col gap-4 w-full"
-            >
-              <SectionTagHeading width="lg:text-[1.8em] text-[#1e1e1e] text-2xl font-semibold ">
-                {
-                  //@ts-ignore
-                  displayedProduct().title
-                }
-              </SectionTagHeading>
-              <motion.ul
-                variants={item}
-                className="flex flex-col p-4 !pl-6 md:gap-4 gap-2 list-disc"
-              >
+          <div className="min-[860px]:flex-[0_0_50%] flex-[0_0_100%] w-full flex flex-col">
+            <div className="flex flex-col gap-4 w-full">
+              <Reveal>
+                <SectionTagHeading width="lg:text-[1.8em] text-[#1e1e1e] !text-left text-2xl font-semibold ">
+                  {
+                    //@ts-ignore
+                    displayedProduct().title
+                  }
+                </SectionTagHeading>
+              </Reveal>
+              <ul className="flex flex-col mb-4 md:gap-4 gap-2 list-disc">
                 {
                   //@ts-ignore
                   displayedProduct().benefits.map((description, index) => (
-                    <motion.li
-                      variants={item}
+                    <Reveal
                       key={index}
-                      className="md:text-[1.25em] text-[1.125em] text-[#1e1e1e] leading-[1.2] md:leading-[1.4rem]"
+                      styles="md:text-[1.25em] text-[1.125em] text-[#1e1e1e] leading-[1.2] md:leading-[1.4rem]"
                     >
                       {description}
-                    </motion.li>
+                    </Reveal>
                   ))
                 }
-              </motion.ul>
-              <motion.p
-                variants={item}
-                className="md:text-[1.25em] text-[1.125em] text-[#1e1e1e]"
-              >
+              </ul>
+              <Reveal styles="md:text-[1.25em] text-[1.125em] text-[#1e1e1e]">
                 <span>Price: </span>
                 {
                   //@ts-ignore
                   displayedProduct().price
                 }
-              </motion.p>
-            </motion.div>
-            <motion.div
-              variants={item}
-              className="min-[340px]:flex-row flex-col flex !mt-10 items-center gap-4"
-            >
+              </Reveal>
+            </div>
+            <div className="min-[340px]:flex-row flex-col flex !mt-10 items-center gap-4">
               <Button
                 asChild
-                className="bg-green-700 p-6  xmd:!text-base max-xmd:w-full rounded-full lg:hover:bg-green-800 hover:bg-green-800 max-[192px]:whitespace-normal flex space-x-2 max-[192px]:text-center !h-0"
+                variant={"ghost"}
+                className="border border-green-700 p-6  xmd:!text-base max-xmd:w-full rounded-full max-[192px]:whitespace-normal flex space-x-2 max-[192px]:text-center !h-0"
               >
                 <Link
                   href={`https://wa.me/${
@@ -185,6 +156,7 @@ const ProductPage = ({ productId, productName }: props) => {
                     displayedProduct().title
                   }`}
                   target="_blank"
+                  className="text-green-700"
                 >
                   Inquire via whatsapp
                 </Link>
@@ -194,7 +166,7 @@ const ProductPage = ({ productId, productName }: props) => {
                   //@ts-ignore
                   displayedProduct().actionBtn.label
                 }
-                btnStyles="bg-green-700 hover:text-[#fff] lg:hover:bg-green-800 hover:bg-green-800 p-6  xmd:!text-base text-white max-xmd:w-full rounded-full lg:hover:bg-green-800  max-[192px]:whitespace-normal flex space-x-2 max-[192px]:text-center !h-0"
+                btnStyles="bg-green-800 hover:text-[#fff] lg:hover:bg-green-800 hover:bg-green-800 p-6  xmd:!text-base text-white max-xmd:w-full rounded-full lg:hover:bg-green-800  max-[192px]:whitespace-normal flex space-x-2 max-[192px]:text-center !h-0"
               >
                 <div className="p-6 ">
                   <h3 className="lg:max-w-[15em] py-3 w-full text-[1.5em] leading-[1.1] font-medium">
@@ -290,107 +262,96 @@ const ProductPage = ({ productId, productName }: props) => {
                   </Form>
                 </div>
               </BenedictsDialog>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </section>
         <section className="w-full pt-[5em] pb-[4em]   relative  flex flex-col   ">
           <div className="flex flex-col text-[#1e1e1e] gap-2">
-            <SectionTagHeading width="md:text-[1.375em] text-2xl font-medium">
-              Product Descriptions
-            </SectionTagHeading>
+            <Reveal>
+              <SectionTagHeading width="md:text-[1.375em] !text-left text-2xl font-medium">
+                Product Descriptions
+              </SectionTagHeading>
+            </Reveal>
             <div className=" md:text-[1.125em]  text-[#1e1e1e] md:leading-[1.4rem] w-full xmd:max-w-[800px]">
-              <motion.p
-                variants={{
-                  hideslide: { x: 20, opacity: 0 },
-                  visibleslide: { x: 0, opacity: 1 },
-                }}
-                initial="hideslide"
-                whileInView={"visibleslide"}
-              >
-                {
-                  //@ts-ignore
-                  displayedProduct().descriptions
-                }
-              </motion.p>
+              <Reveal>
+                <p>
+                  {
+                    //@ts-ignore
+                    displayedProduct().descriptions
+                  }
+                </p>
+              </Reveal>
             </div>
           </div>
         </section>
         <section className="w-full pb-[4em]   relative  flex flex-col   ">
           <div className="flex flex-col text-[#1e1e1e] gap-2">
-            <SectionTagHeading width="md:text-[1.375em] text-2xl font-medium">
-              Applications of{" "}
-              {
-                //@ts-ignore
-                displayedProduct().title
-              }
-            </SectionTagHeading>
-            <div className=" md:text-[1.125em]  text-[#1e1e1e] md:leading-[1.4rem] w-full xmd:max-w-[800px]">
-              <motion.p
-                variants={{
-                  hideslide: { x: 20, opacity: 0 },
-                  visibleslide: { x: 0, opacity: 1 },
-                }}
-                initial="hideslide"
-                whileInView={"visibleslide"}
-              >
+            <Reveal>
+              <SectionTagHeading width="md:text-[1.375em] !text-left text-2xl font-medium">
+                Applications of{" "}
                 {
                   //@ts-ignore
-                  displayedProduct().Applications
+                  displayedProduct().title
                 }
-              </motion.p>
+              </SectionTagHeading>
+            </Reveal>
+            <div className=" md:text-[1.125em]  text-[#1e1e1e] md:leading-[1.4rem] w-full xmd:max-w-[800px]">
+              <Reveal>
+                <p>
+                  {
+                    //@ts-ignore
+                    displayedProduct().Applications
+                  }
+                </p>
+              </Reveal>
             </div>
           </div>
         </section>
         <section className="w-full pb-[4em]   relative  flex flex-col   ">
           <div className="flex flex-col text-[#1e1e1e] gap-2">
-            <SectionTagHeading width="md:text-[1.375em] text-2xl font-medium">
-              Suitable for
-            </SectionTagHeading>
+            <Reveal>
+              <SectionTagHeading width="md:text-[1.375em] text-2xl !text-left font-medium">
+                Suitable for
+              </SectionTagHeading>
+            </Reveal>
             <div className=" md:text-[1.125em]  text-[#1e1e1e] leading-[1.4rem] w-full xmd:max-w-[800px]">
-              <motion.p
-                variants={{
-                  hideslide: { x: 20, opacity: 0 },
-                  visibleslide: { x: 0, opacity: 1 },
-                }}
-                initial="hideslide"
-                whileInView={"visibleslide"}
-              >
-                {
-                  //@ts-ignore
-                  displayedProduct().suitable
-                }
-              </motion.p>
+              <Reveal>
+                <p>
+                  {
+                    //@ts-ignore
+                    displayedProduct().suitable
+                  }
+                </p>
+              </Reveal>
             </div>
           </div>
         </section>
         <section className="w-full pb-[4em]   relative  flex flex-col   ">
           <div className="flex flex-col text-[#1e1e1e] gap-2">
-            <SectionTagHeading width="md:text-[1.4em] text-2xl  font-medium">
-              Nutritional Contents
-            </SectionTagHeading>
-            <motion.div
-              variants={{
-                hideslide: { x: 20, opacity: 0 },
-                visibleslide: { x: 0, opacity: 1 },
-              }}
-              initial="hideslide"
-              whileInView={"visibleslide"}
-              className=" md:text-[1.125em]  text-[#1e1e1e] leading-[1.4rem] w-full xmd:max-w-[800px]"
-            >
+            <Reveal>
+              <SectionTagHeading width="md:text-[1.4em] !text-left text-2xl  font-medium">
+                Nutritional Contents
+              </SectionTagHeading>
+            </Reveal>
+            <div className=" md:text-[1.125em]  text-[#1e1e1e] leading-[1.4rem] w-full xmd:max-w-[800px]">
               {
                 //@ts-ignore
                 displayedProduct().NutritionalContents.map((content, index) => (
-                  <p key={index}>{content}</p>
+                  <Reveal key={index}>
+                    <p>{content}</p>
+                  </Reveal>
                 ))
               }
-            </motion.div>
+            </div>
           </div>
         </section>
         <section className="w-full pb-[4em]   relative  flex flex-col   ">
           <div className="flex flex-col text-[#1e1e1e] gap-2">
-            <SectionTagHeading width="md:text-[1.375em] text-2xl font-medium">
-              Explore more from Lima Africa&apos;s Products
-            </SectionTagHeading>
+            <Reveal>
+              <SectionTagHeading width="md:text-[1.375em] !text-left text-2xl font-medium">
+                Explore more from Lima Africa&apos;s Products
+              </SectionTagHeading>
+            </Reveal>
             <div className="pt-4 gap-10 w-full xmd:flex-row flex-col relative flex  whitespace-nowrap">
               {productsContent.products.map((product, index) => {
                 //@ts-ignore
@@ -406,29 +367,34 @@ const ProductPage = ({ productId, productName }: props) => {
                   >
                     <Link href={product.link.path}>
                       <Card className="flex border-none  rounded-lg bg-[#0C3623] p-[1em]  overflow-hidden  flex-1 h-full z-10  relative  flex-col justify-end  min-w-full  ">
-                        <div className="relative flex-1 min-h-[10em]">
+                        <ImageReveal styles="relative flex-1 min-h-[10em]">
                           <Image
                             src={product.img}
                             fill
-                            sizes="100vw"
+                            sizes="(min-width: 768px) 100vw"
                             alt={product.title}
                             className={"block object-cover img-container"}
                           />
-                        </div>
+                        </ImageReveal>
                         <div className="flex flex-col w-full rounded-full items-center   ">
                           <div className="flex flex-col justify-center    leading-1 space-y-5 w-full  whitespace-normal">
                             <div className="flex justify-between relative  items-end  min-h-full z-10 ">
                               <div className="inline-block  w-full  ">
-                                <h4 className=" text-[#fff]  tracking-tight relative leading-[1.2] max-lg:mb-3 lg:absolute lg:bottom-0 lg:left-0 font-medium product ">
-                                  {product.title}
-                                </h4>
-
+                                <Reveal>
+                                  <h4 className=" text-[#fff] relative leading-[1.2] max-lg:mb-3 lg:absolute lg:bottom-0 lg:left-0 font-medium product ">
+                                    {product.title}
+                                  </h4>
+                                </Reveal>
                                 {
                                   //@ts-ignore
                                   product.title === displayedProduct().title ? (
-                                    <p className="text-[#1e1e1e] lg:backdrop-blur absolute top-50% translate-x-[0%]  translate-y-[100%] left-50%  lg:p-4 w-full overflow-hidden product-desc  lg:hidden block text-ellipsis box-border line-clamp-3 cursor-vertical-text  ">{`${productsContent.bsfLive.descriptions}`}</p>
+                                    <Reveal>
+                                      <p className="text-[#1e1e1e] lg:backdrop-blur absolute top-50% translate-x-[0%]  translate-y-[100%] left-50%  lg:p-4 w-full overflow-hidden product-desc  lg:hidden block text-ellipsis box-border line-clamp-3 cursor-vertical-text  ">{`${productsContent.bsfLive.descriptions}`}</p>
+                                    </Reveal>
                                   ) : (
-                                    <p className="text-[#1e1e1e] lg:backdrop-blur absolute top-50% translate-x-[0%]  translate-y-[100%] left-50%  lg:p-4 w-full overflow-hidden product-desc  lg:hidden block text-ellipsis box-border line-clamp-3 cursor-vertical-text  ">{`${product.descriptions[0]}`}</p>
+                                    <Reveal>
+                                      <p className="text-[#1e1e1e] lg:backdrop-blur absolute top-50% translate-x-[0%]  translate-y-[100%] left-50%  lg:p-4 w-full overflow-hidden product-desc  lg:hidden block text-ellipsis box-border line-clamp-3 cursor-vertical-text  ">{`${product.descriptions[0]}`}</p>
+                                    </Reveal>
                                   )
                                 }
                               </div>
@@ -456,23 +422,27 @@ const ProductPage = ({ productId, productName }: props) => {
                 >
                   <Link href={productsContent.bsfLive.link.path}>
                     <Card className="flex border-none  rounded-lg bg-[#0C3623] p-[1em] overflow-hidden  flex-1 h-full z-10  relative  flex-col justify-end  min-w-full  ">
-                      <div className="relative flex-1 min-h-[10em]">
+                      <ImageReveal styles="relative flex-1 min-h-[10em]">
                         <Image
                           src={productsContent.products[0].img}
                           fill
-                          sizes="100vw"
+                          sizes="(min-width: 768px) 100vw"
                           alt={productsContent.bsfLive.title}
                           className={"block object-cover img-container"}
                         />
-                      </div>
+                      </ImageReveal>
                       <div className="flex flex-col w-full rounded-full items-center   ">
                         <div className="flex flex-col justify-center    leading-1 space-y-5 w-full  whitespace-normal">
                           <div className="flex justify-between relative   items-end  min-h-full z-10 ">
                             <div className="inline-block  w-full  ">
-                              <h4 className=" text-[#fff]  tracking-tight relative  leading-[1.2] max-lg:mb-3 lg:absolute lg:bottom-0 lg:left-0 font-medium product ">
-                                {productsContent.bsfLive.title}
-                              </h4>
-                              <p className="text-[#1e1e1e] lg:backdrop-blur absolute top-50% translate-x-[0%]  translate-y-[100%] left-50%  lg:p-4 w-full overflow-hidden product-desc  lg:hidden block text-ellipsis box-border line-clamp-3 cursor-vertical-text  ">{`${productsContent.bsfLive.descriptions}`}</p>
+                              <Reveal>
+                                <h4 className=" text-[#fff]  relative  leading-[1.2] max-lg:mb-3 lg:absolute lg:bottom-0 lg:left-0 font-medium product ">
+                                  {productsContent.bsfLive.title}
+                                </h4>
+                              </Reveal>
+                              <Reveal>
+                                <p className="text-[#1e1e1e] lg:backdrop-blur absolute top-50% translate-x-[0%]  translate-y-[100%] left-50%  lg:p-4 w-full overflow-hidden product-desc  lg:hidden block text-ellipsis box-border line-clamp-3 cursor-vertical-text  ">{`${productsContent.bsfLive.descriptions}`}</p>
+                              </Reveal>
                             </div>
                             <ArrowRightCircle
                               color="white"
