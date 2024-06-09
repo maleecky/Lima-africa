@@ -48,12 +48,12 @@ const ProductPage = ({ productId, productName }: props) => {
           displayedAmount = products.price * response.conversion_rates.TZS;
         }
         if (currency === "USD") {
-          displayedAmount = Math.floor(
+          displayedAmount = Math.round(
             products.price * response.conversion_rates.USD
           );
         }
         if (currency === "EUR") {
-          displayedAmount = Math.floor(
+          displayedAmount = Math.round(
             products.price * response.conversion_rates.EUR
           );
         }
@@ -69,10 +69,10 @@ const ProductPage = ({ productId, productName }: props) => {
             displayedAmount = products.price;
           }
           if (currency === "USD") {
-            displayedAmount = Math.floor(products.price * 0.00038);
+            displayedAmount = Math.round(products.price * 0.00038);
           }
           if (currency === "EUR") {
-            displayedAmount = Math.floor(products.price * 0.0004);
+            displayedAmount = Math.round(products.price * 0.0004);
           }
         }
         setAmount(displayedAmount);
