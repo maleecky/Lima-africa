@@ -15,6 +15,7 @@ import {
   NavigationMenuItem,
   NavigationMenuTrigger,
 } from "../ui/navigation-menu";
+import { url } from "inspector";
 
 type props = {
   theme?: string;
@@ -48,17 +49,22 @@ const MainHeader = ({ theme }: props) => {
       )}
     >
       <aside className="flex items-center gap-2 ">
-        <Link href={"/"} className="relative md:w-20 md:h-20 w-[5.5em] h-[5em]">
+        <Link
+          href={"/"}
+          as={"/"}
+          className="relative md:w-20 md:h-20 w-[5.5em] h-[5em]"
+        >
           <Image
             src={theme ? limaWhite : headerContents.logourl}
             fill
             sizes="(min-width:768px) 100vw"
+            priority
             alt=""
             className="object-contain w-full h-full"
           />
         </Link>
       </aside>
-      <nav className="hidden min-[990px]:block absolute left-[50%] transform translate-x-[-50%] ">
+      <nav className="hidden min-[1100px]:block absolute left-[50%] transform translate-x-[-50%] ">
         <ul className="flex items-center py-1.5 px-8  justify-center gap-8 rounded-3xl text-nowrap">
           {headerContents.links.map((link, index) => {
             if (link.label !== "Products") {
@@ -115,7 +121,7 @@ const MainHeader = ({ theme }: props) => {
           })}
         </ul>
       </nav>
-      <aside className=" max-[990px]:flex max-[990px]:items-center max-[990px]:space-x-5 ">
+      <aside className=" max-[1100px]:flex max-[1100px]:items-center max-[1100px]:space-x-5 ">
         <Button
           asChild
           variant={"outline"}

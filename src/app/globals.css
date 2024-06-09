@@ -505,9 +505,6 @@ label {
   .hovered:hover .cover {
     @apply bg-[#1616166e];
   }
-  .hovered:hover .product-desc {
-    @apply !block absolute -top-60;
-  }
 
   .hovered {
     touch-action: manipulation;
@@ -520,7 +517,7 @@ label {
     @apply opacity-0;
   }
   .hovered:hover .img-container {
-    @apply scale-150;
+    @apply scale-[1.2];
   }
 }
 

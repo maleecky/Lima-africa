@@ -54,7 +54,7 @@ const ProductSection = () => {
                             </h4>
                           </Reveal>
                           <Reveal>
-                            <p className="text-[#fff] lg:backdrop-blur lg:p-4 w-full overflow-hidden product-desc lg:max-w-[40em]  max-w-[25em] lg:hidden block text-ellipsis box-border line-clamp-3 cursor-vertical-text text-[1.125em] ">{`${product.descriptions[0]}`}</p>
+                            <p className="text-[#fff] lg:backdrop-blur lg:p-4 w-full overflow-hidden lg:max-w-[40em]  max-w-[25em] lg:hidden block text-ellipsis box-border line-clamp-3 cursor-vertical-text text-[1.125em] ">{`${product.descriptions[0]}`}</p>
                           </Reveal>
                         </div>
                         <Reveal>

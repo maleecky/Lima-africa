@@ -15,7 +15,7 @@ export function MenuSheet({ whiteColor }: { whiteColor?: string }) {
       <SheetTrigger asChild>
         <Button
           variant={"ghost"}
-          className="min-[990px]:hidden !h-0 bg-white/40 backdrop-blur-sm rounded-full px-3 py-5 flex justify-center items-center  hover:bg-transparent  "
+          className="min-[1100px]:hidden !h-0 bg-white/40 backdrop-blur-sm rounded-full px-3 py-5 flex justify-center items-center  hover:bg-transparent  "
           title="menu"
         >
           <MenuIcon color={whiteColor ? "#1e1e1e" : "#fff"} className="w-5 " />

@@ -28,7 +28,7 @@ const WasteManagement = () => {
       </ImageReveal>
       <div className="pt-[5em]  max-w-[55em] mx-auto pb-4">
         <Reveal>
-          <h4 className="text-2xl leading-[1.6em] max-xmd:text-center">
+          <h4 className="text-2xl leading-[1.6em] text-center">
             {"Our vision is " + serviceContent.vision}
           </h4>
         </Reveal>

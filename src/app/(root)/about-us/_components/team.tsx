@@ -13,7 +13,7 @@ const TeamSection = () => {
       slidesToScroll: "auto",
       active: true,
       breakpoints: {
-        "(min-width: 1120px)": { active: false },
+        "(min-width: 1100px)": { active: false },
       },
     },
     [Autoplay()]
@@ -57,12 +57,12 @@ const TeamSection = () => {
 
                   <div className="flex p-2 flex-col items-center w-full   ">
                     <Reveal>
-                      <h4 className="text-sm font-medium leading-relaxed">
+                      <h4 className="text-sm font-medium  leading-relaxed">
                         {member.name.toUpperCase()}
                       </h4>
                     </Reveal>
                     <Reveal>
-                      <p className="text-sm text-slate-500 px-2">
+                      <p className="text-sm text-center text-slate-500 px-2">
                         {member.title}
                       </p>
                     </Reveal>
