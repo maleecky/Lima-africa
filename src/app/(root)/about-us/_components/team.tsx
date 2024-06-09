@@ -7,6 +7,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import Reveal from "@/components/global/reveal";
 import ListReveal, { itemVariant } from "@/components/global/list-reveal";
+import ImageReveal from "@/components/global/image-reveal";
 
 const TeamSection = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel(
@@ -36,10 +37,9 @@ const TeamSection = () => {
 
       <div className="embla !w-full">
         <div className="embla__viewport !w-full" ref={emblaRef}>
-          <ListReveal styles="embla__container !w-full !gap-2  ">
+          <div className="embla__container !w-full !gap-2  ">
             {aboutContents.Team.members.map((member, index) => (
-              <motion.div
-                variants={itemVariant}
+              <div
                 key={index}
                 className="embla__slide xl:!flex-[0_0_20%] !flex-[0_0_33%]"
               >
@@ -47,7 +47,7 @@ const TeamSection = () => {
                   href={member.linkedinLink}
                   className=" flex  relative  bg-transparent justify-center items-center flex-col "
                 >
-                  <div className="relative min-[720px]:h-32 h-56  min-[720px]:w-32 w-56">
+                  <ImageReveal styles="relative min-[720px]:h-32 h-56  min-[720px]:w-32 w-56">
                     <Image
                       src={member.img}
                       width={200}
@@ -55,7 +55,7 @@ const TeamSection = () => {
                       alt={member.name}
                       className=" object-cover w-full h-full  object-center rounded-full"
                     />
-                  </div>
+                  </ImageReveal>
 
                   <div className="flex p-2 flex-col items-center w-full   ">
                     <Reveal>
@@ -70,9 +70,9 @@ const TeamSection = () => {
                     </Reveal>
                   </div>
                 </Link>
-              </motion.div>
+              </div>
             ))}
-          </ListReveal>
+          </div>
         </div>
       </div>
     </section>

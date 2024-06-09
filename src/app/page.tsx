@@ -53,7 +53,7 @@ export default function Home() {
         </div>
         <footer className="relative">
           <div className="flex relative py-10  justify-center flex-col items-center">
-            <div className="absolute top-0 left-0 right-0 bottom-0 -z-10 bg-[#0C3623] backdrop-blur-lg"></div>
+            <div className="absolute top-0 left-0 right-0 bottom-0 -z-10 bg-[#3D5C30] backdrop-blur-lg"></div>
             <MainFooter theme="black" />
           </div>
         </footer>

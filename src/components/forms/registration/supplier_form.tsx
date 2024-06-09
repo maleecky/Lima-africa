@@ -100,6 +100,29 @@ const SupplierForm = () => {
               <p className=" text-[1.125em] lg:text-medium leading-[1.3]">
                 {farmerFormContents.description}
               </p>
+              <div className="min-[950px]:hidden !mt-[2em]  w-full">
+                <BenedictsDialog
+                  btn={farmerFormContents.benefitsAccordionTriggerlabel}
+                >
+                  <div className=" w-full overflow-y-auto hide-scrollbar h-[425px]">
+                    <div className="p-4">
+                      <h3
+                        className="text-[#1e1e1e] font-medium  block w-full text-xl"
+                        aria-hidden="true"
+                      >
+                        {farmerFormContents.benefitsAccordionTriggerlabel}
+                      </h3>
+                      <div className="w-full leading-[1.5] text-[#1e1e1e] text-sm flex flex-col gap-4">
+                        {farmerFormContents.benefits.map((benefit, index) => (
+                          <div key={index}>
+                            <p className="text-[1em]">{benefit.label}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </BenedictsDialog>
+              </div>
             </CardHeader>
             <CardContent className="p-0 !pt-8">
               <Form {...form}>
@@ -180,31 +203,6 @@ const SupplierForm = () => {
                   >
                     {farmerFormContents.submitBtn.label}
                   </Button>
-                  <div className="min-[950px]:hidden !mt-[2em]  w-full">
-                    <BenedictsDialog
-                      btn={farmerFormContents.benefitsAccordionTriggerlabel}
-                    >
-                      <div className=" w-full overflow-y-auto hide-scrollbar h-[425px]">
-                        <div className="p-4">
-                          <h3
-                            className="text-[#1e1e1e] font-medium  block w-full text-xl"
-                            aria-hidden="true"
-                          >
-                            {farmerFormContents.benefitsAccordionTriggerlabel}
-                          </h3>
-                          <div className="w-full leading-[1.5] text-[#1e1e1e] text-sm flex flex-col gap-4">
-                            {farmerFormContents.benefits.map(
-                              (benefit, index) => (
-                                <div key={index}>
-                                  <p className="text-[1em]">{benefit.label}</p>
-                                </div>
-                              )
-                            )}
-                          </div>
-                        </div>
-                      </div>
-                    </BenedictsDialog>
-                  </div>
                 </form>
               </Form>
             </CardContent>

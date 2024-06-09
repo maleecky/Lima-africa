@@ -57,7 +57,7 @@ const DistributorForm = () => {
   const isLoading = form.formState.isSubmitting;
   return (
     <div className="flex lg:p-6 lg:max-w-[70em] max-w-full lg:gap-12 mt-[4em] rounded-2xl  ">
-      <div className=" px-6 !py-[2em] bg-[#0C3623] rounded-2xl w-full min-[950px]:flex hidden">
+      <div className=" px-6 !py-[2em] bg-[#3D5C30] rounded-2xl w-full min-[950px]:flex hidden">
         <div
           className="flex flex-col gap-10
         "
@@ -88,8 +88,33 @@ const DistributorForm = () => {
           <Card className="z-10 w-full p-6  max-[950px]:border border-none max-[950px]:shadow shadow-none  bg-transparent ">
             <Reveal styles="p-0 mb-5  text-[#1e1e1e]  ">
               <p className=" text-[1.125em] lg:text-medium leading-[1.3]">
-                {distributorFormContents.description}
+                {distributorFormContents.description}{" "}
               </p>
+            </Reveal>
+            <Reveal styles="min-[950px]:hidden !mb-[2em]  w-full">
+              <BenedictsDialog
+                btn={distributorFormContents.benefitsAccordionTriggerlabel}
+              >
+                <div className="w-full overflow-y-auto hide-scrollbar h-[425px]">
+                  <div className="p-4 ">
+                    <h3
+                      className="text-[#1e1e1e] font-semibold  block w-full "
+                      aria-hidden="true"
+                    >
+                      {distributorFormContents.benefitsAccordionTriggerlabel}
+                    </h3>
+                    <div className="w-full leading-[1.5] text-[#1e1e1e] flex flex-col gap-2">
+                      {distributorFormContents.benefits.map(
+                        (benefit, index) => (
+                          <div key={index}>
+                            <p className="text-[1em]">{benefit.label}</p>
+                          </div>
+                        )
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </BenedictsDialog>
             </Reveal>
             <CardContent className="p-0 !pt-4">
               <Form {...form}>
@@ -171,35 +196,6 @@ const DistributorForm = () => {
                   >
                     {distributorFormContents.submitBtn.label}
                   </Button>
-                  <div className="min-[950px]:hidden !mt-[2em]  w-full">
-                    <BenedictsDialog
-                      btn={
-                        distributorFormContents.benefitsAccordionTriggerlabel
-                      }
-                    >
-                      <div className="w-full overflow-y-auto hide-scrollbar h-[425px]">
-                        <div className="p-4 ">
-                          <h3
-                            className="text-[#1e1e1e] font-semibold  block w-full text-xl"
-                            aria-hidden="true"
-                          >
-                            {
-                              distributorFormContents.benefitsAccordionTriggerlabel
-                            }
-                          </h3>
-                          <div className="w-full leading-[1.5] text-[#1e1e1e] flex flex-col gap-2">
-                            {distributorFormContents.benefits.map(
-                              (benefit, index) => (
-                                <div key={index}>
-                                  <p className="text-[1em]">{benefit.label}</p>
-                                </div>
-                              )
-                            )}
-                          </div>
-                        </div>
-                      </div>
-                    </BenedictsDialog>
-                  </div>
                 </form>
               </Form>
             </CardContent>

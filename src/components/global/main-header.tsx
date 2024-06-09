@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "../ui/button";
 import { MenuSheet } from "./menu-bar";
 import { headerContents } from "@/lib/constants";
@@ -22,14 +22,33 @@ type props = {
 
 const MainHeader = ({ theme }: props) => {
   const pageUrl = usePathname();
+  const [background, setBackground] = useState(false);
+
+  useEffect(() => {
+    const changeBackgroundHandler = () => {
+      if (window.scrollY >= 80) {
+        setBackground(true);
+      } else {
+        setBackground(false);
+      }
+    };
+
+    window.addEventListener("scroll", changeBackgroundHandler);
+  }, []);
 
   return (
-    <header className="md:p-4 md:!px-8 py-5 px-2  absolute top-0 w-full flex items-center justify-between z-50">
+    <header
+      className={clsx(
+        "md:p-4 md:!px-8 py-5 px-2 fixed top-0 w-full flex duration-75 ease-in transition-colors items-center justify-between z-50",
+        {
+          "backdrop-blur-[4px]": background,
+          " bg-green-900/70 ": background && !theme,
+          "bg-slate-50/80": background && theme,
+        }
+      )}
+    >
       <aside className="flex items-center gap-2 ">
-        <Link
-          href={"/"}
-          className="relative md:w-20 md:h-20 w-[4.5em] h-[4.5em]"
-        >
+        <Link href={"/"} className="relative md:w-20 md:h-20 w-[5em] h-[4.5em]">
           <Image
             src={theme ? limaWhite : headerContents.logourl}
             fill
@@ -105,7 +124,7 @@ const MainHeader = ({ theme }: props) => {
             {
               "bg-transparent lg:hover:bg-[#5BC89E] text-[#1e1e1e] border border-[#5BC89E]":
                 theme,
-              " bg-[#d4ffe3]": !theme,
+              " bg-[#d4ffe3] border-none shadow-none": !theme,
             }
           )}
         >

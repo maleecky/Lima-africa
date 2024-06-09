@@ -94,7 +94,7 @@ const ProductPage = ({ productId, productName }: props) => {
     <div className="flex flex-col justify-center w-full pb-[2rem] lg:px-20 md:px-12 px-6 pt-[5rem]">
       <div className="max-w-[2000px] mx-auto w-full">
         <section className="flex min-[860px]:flex-row flex-col min-[860px]:max-w-[70em] max-w-full min-[860px]:gap-20 gap-10 mt-[5em] rounded-lg  ">
-          <div className="relative flex-[0_0_50%] [min-860px]:max-w-[600px] min-w-[10em] min-h-[20em] max-xs:min-h-[10em] p-4 rounded-2xl bg-[#0C3623]  text-[#1e1e1e] min-[860px]:flex-[0_0_50%]  w-full ">
+          <div className="relative flex-[0_0_50%] [min-860px]:max-w-[600px] min-w-[10em] min-h-[20em] max-xs:min-h-[10em] p-4 rounded-2xl bg-[#3D5C30]  text-[#1e1e1e] min-[860px]:flex-[0_0_50%]  w-full ">
             <Reveal styles="text-sm absolute top-[8px] left-[8px] bg-[#C6E156] rounded-2xl py-2 px-4  ">
               Lima Product
             </Reveal>
@@ -253,7 +253,7 @@ const ProductPage = ({ productId, productName }: props) => {
                         )}
                       />
                       <Button
-                        className=" px-4 bg-[#022F35] max-w-[200px] w-full "
+                        className=" px-4 bg-[#3D5C30] max-w-[200px] w-full "
                         type="submit"
                       >
                         Inquire via Email
@@ -366,7 +366,7 @@ const ProductPage = ({ productId, productName }: props) => {
                     variant={"ghost"}
                   >
                     <Link href={product.link.path}>
-                      <Card className="flex border-none  rounded-lg bg-[#0C3623] p-[1em]  overflow-hidden  flex-1 h-full z-10  relative  flex-col justify-end  min-w-full  ">
+                      <Card className="flex border-none  rounded-lg bg-[#3D5C30] p-[1em]  overflow-hidden  flex-1 h-full z-10  relative  flex-col justify-end  min-w-full  ">
                         <ImageReveal styles="relative flex-1 min-h-[10em]">
                           <Image
                             src={product.img}
@@ -381,7 +381,7 @@ const ProductPage = ({ productId, productName }: props) => {
                             <div className="flex justify-between relative  items-end  min-h-full z-10 ">
                               <div className="inline-block  w-full  ">
                                 <Reveal>
-                                  <h4 className=" text-[#fff] relative leading-[1.2] max-lg:mb-3 lg:absolute lg:bottom-0 lg:left-0 font-medium product ">
+                                  <h4 className=" text-[#fff] relative text-[1.1em] leading-[1.2] max-lg:mb-3 lg:absolute lg:bottom-0 lg:left-0 font-medium product ">
                                     {product.title}
                                   </h4>
                                 </Reveal>
@@ -398,9 +398,9 @@ const ProductPage = ({ productId, productName }: props) => {
                                   )
                                 }
                               </div>
-                              <ArrowRightCircle
+                              <ArrowRight
                                 color="white"
-                                width={18}
+                                width={20}
                                 className="circle max-sm:w-4 absolute lg:block hidden bottom-0 right-0"
                               />
                             </div>
@@ -421,7 +421,7 @@ const ProductPage = ({ productId, productName }: props) => {
                   variant={"ghost"}
                 >
                   <Link href={productsContent.bsfLive.link.path}>
-                    <Card className="flex border-none  rounded-lg bg-[#0C3623] p-[1em] overflow-hidden  flex-1 h-full z-10  relative  flex-col justify-end  min-w-full  ">
+                    <Card className="flex border-none  rounded-lg bg-[#3D5C30] p-[1em] overflow-hidden  flex-1 h-full z-10  relative  flex-col justify-end  min-w-full  ">
                       <ImageReveal styles="relative flex-1 min-h-[10em]">
                         <Image
                           src={productsContent.products[0].img}
@@ -436,7 +436,7 @@ const ProductPage = ({ productId, productName }: props) => {
                           <div className="flex justify-between relative   items-end  min-h-full z-10 ">
                             <div className="inline-block  w-full  ">
                               <Reveal>
-                                <h4 className=" text-[#fff]  relative  leading-[1.2] max-lg:mb-3 lg:absolute lg:bottom-0 lg:left-0 font-medium product ">
+                                <h4 className=" text-[#fff] text-[1.1em] relative  leading-[1.2] max-lg:mb-3 lg:absolute lg:bottom-0 lg:left-0 font-medium product ">
                                   {productsContent.bsfLive.title}
                                 </h4>
                               </Reveal>
@@ -444,9 +444,9 @@ const ProductPage = ({ productId, productName }: props) => {
                                 <p className="text-[#1e1e1e] lg:backdrop-blur absolute top-50% translate-x-[0%]  translate-y-[100%] left-50%  lg:p-4 w-full overflow-hidden product-desc  lg:hidden block text-ellipsis box-border line-clamp-3 cursor-vertical-text  ">{`${productsContent.bsfLive.descriptions}`}</p>
                               </Reveal>
                             </div>
-                            <ArrowRightCircle
+                            <ArrowRight
                               color="white"
-                              width={18}
+                              width={20}
                               className="circle max-sm:w-4 absolute lg:block hidden bottom-0 right-0"
                             />
                           </div>

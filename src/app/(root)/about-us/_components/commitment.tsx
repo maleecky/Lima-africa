@@ -35,7 +35,7 @@ const Commitment = () => {
             {aboutContents.commitLists.lists.map((item, index) => (
               <motion.div
                 variants={itemVariant}
-                className="lg:flex-[0_0_33.33%]  flex-[0_0_100%] space-y-4  bg-[#ADD63B] p-6 rounded-2xl"
+                className="lg:flex-[0_0_33.33%]  flex-[0_0_100%] space-y-4  bg-[#3D5C30] text-white p-6 rounded-2xl"
                 key={index}
               >
                 <Reveal>

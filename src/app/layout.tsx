@@ -26,6 +26,7 @@ export default function RootLayout({
         className={`${font.className} overflow-y-auto relative w-full mx-auto`}
       >
         {children}
+
         <Toaster />
       </body>
     </html>

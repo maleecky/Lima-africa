@@ -41,16 +41,12 @@ const TestimonialsSection = () => {
       </div>
       <div className="embla">
         <div className="embla__viewport" ref={emblaRef}>
-          <ListReveal styles="embla__container  ">
+          <div className="embla__container  ">
             {testimonialsContents.testimonials.map((testimonial, index) => (
-              <motion.div
-                variants={itemVariant}
-                className="embla__slide"
-                key={index}
-              >
+              <Reveal styles="embla__slide" key={index}>
                 <Card
                   className={
-                    "flex relative bg-[#EFF7FF] rounded-2xl h-full  border-0 flex-col !p-4 !pt-6  "
+                    "flex relative border-[#3D5C30]/40 shadow-none rounded-2xl h-full  border  flex-col !p-4 !pt-6  "
                   }
                 >
                   <Image
@@ -107,9 +103,9 @@ const TestimonialsSection = () => {
                     </div>
                   </CardFooter>
                 </Card>
-              </motion.div>
+              </Reveal>
             ))}
-          </ListReveal>
+          </div>
         </div>
         <div className="embla__controls min-[720px]:!flex !hidden">
           <div className="embla__buttons">

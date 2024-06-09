@@ -20,7 +20,7 @@ const LandingSection = () => {
             <Reveal>{serviceContent.pitch[0].title}</Reveal>
           </h1>
           <Reveal>
-            <p className="lg:text-[1.25em] text-base">
+            <p className="lg:text-[1.25em] text-base leading-[1.5em] max-w-[40em]">
               {serviceContent.pitch[0].description}
             </p>
           </Reveal>

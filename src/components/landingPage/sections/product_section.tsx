@@ -34,7 +34,7 @@ const ProductSection = () => {
               variant={"ghost"}
             >
               <Link href={product.link.path}>
-                <Card className="flex border-none !shadow-none bg-[#ABD939]  rounded-2xl  overflow-hidden xmd:p-4 max-xmd:py-3  flex-1 h-full z-10  relative  flex-col justify-end  min-w-full  ">
+                <Card className="flex border-none !shadow-none bg-[#3D5C30]  rounded-2xl  overflow-hidden xmd:p-4 max-xmd:py-3  flex-1 h-full z-10  relative  flex-col justify-end  min-w-full  ">
                   <ImageReveal styles="relative flex-1 min-h-[14em] ">
                     <Image
                       src={product.img}
@@ -49,18 +49,18 @@ const ProductSection = () => {
                       <div className="flex justify-between relative !mb-4  px-2 m-3 items-end  min-h-full z-10 ">
                         <div className="inline-block  w-full  ">
                           <Reveal>
-                            <h4 className=" text-[#1e1e1e]   relative text-[1.4em] leading-[1.2] max-lg:mb-3 lg:absolute lg:bottom-0 lg:left-0 font-medium product ">
+                            <h4 className=" text-[#fff]   relative text-[1.4em] leading-[1.2] max-lg:mb-3 lg:absolute lg:bottom-0 lg:left-0 font-medium product ">
                               {product.title}
                             </h4>
                           </Reveal>
                           <Reveal>
-                            <p className="text-[#1e1e1e] lg:backdrop-blur lg:p-4 w-full overflow-hidden product-desc lg:max-w-[40em]  max-w-[25em] lg:hidden block text-ellipsis box-border line-clamp-3 cursor-vertical-text text-[1.125em] ">{`${product.descriptions[0]}`}</p>
+                            <p className="text-[#fff] lg:backdrop-blur lg:p-4 w-full overflow-hidden product-desc lg:max-w-[40em]  max-w-[25em] lg:hidden block text-ellipsis box-border line-clamp-3 cursor-vertical-text text-[1.125em] ">{`${product.descriptions[0]}`}</p>
                           </Reveal>
                         </div>
                         <Reveal>
-                          <ArrowRightCircle
-                            color="black"
-                            width={18}
+                          <ArrowRight
+                            color="white"
+                            width={22}
                             className="circle max-sm:w-4 absolute lg:block hidden bottom-0 right-0"
                           />
                         </Reveal>
