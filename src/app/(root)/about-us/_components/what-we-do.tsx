@@ -6,21 +6,6 @@ import Reveal from "@/components/global/reveal";
 import ImageReveal from "@/components/global/image-reveal";
 
 const WhatWeDo = () => {
-  const container = {
-    hidden: { opacity: 1 },
-    visible: {
-      opacity: 1,
-      transition: { delayChildren: 1, staggerChildren: 0.2 },
-    },
-  };
-
-  const items: Variants = {
-    hidden: { x: 20, opacity: 0 },
-    visible: {
-      x: 0,
-      opacity: 1,
-    },
-  };
   return (
     <section className="lg:px-20 md:px-12 px-6 mb-[7.5em] pt-[100px] max-w-[140em] mx-auto">
       <div className="flex lg:flex-row flex-col-reverse justify-center items-center w-full gap-20">

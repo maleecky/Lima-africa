@@ -10,7 +10,7 @@ const LoadingComponent = () => {
           src={loadingIcon}
           fill
           alt=""
-          sizes="100vw"
+          sizes="(min-width:768px) 100vw"
           className="object-cover w-full h-full"
         />
       </div>

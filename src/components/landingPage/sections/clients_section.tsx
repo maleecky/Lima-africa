@@ -8,7 +8,7 @@ import IconReveal, { iconVariant } from "@/components/global/icons-reveal";
 
 const ClientsSection = () => {
   return (
-    <section className="w-full flex xmd:justify-center xmd:items-center  xmd:max-w-[93.75em] mx-auto lg:px-20 md:px-12 px-6">
+    <section className="w-full flex xmd:justify-center xmd:items-center  xmd:max-w-[93.75em] mx-auto lg:px-14 md:px-12 px-6">
       <div className="pb-[6rem] max-w-[65em] relative  ">
         <Reveal>
           <h2 className="min-[990px]:text-[min(2.5vw,1.75em)]  md:text-[1.4em] text-[1.125em] max-[998px]:leading-[1.5em] max-sm:leading-[1.4]  text-green-950 max-xmd:font-normal font-medium min-[998px]:leading-[1.4em]">

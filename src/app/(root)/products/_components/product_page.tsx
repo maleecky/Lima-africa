@@ -1,37 +1,17 @@
 "use client";
 
 import Image from "next/image";
-import React from "react";
+import React, { useRef, useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { contactFormContents, productsContent } from "@/lib/constants";
-import { ArrowRight, ArrowRightCircle } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import BenedictsDialog from "@/components/forms/registration/_component/dialog_beneficts";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormMessage,
-} from "@/components/ui/form";
-import * as z from "zod";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { Input } from "@/components/ui/input";
-import { toast } from "@/components/ui/use-toast";
-import { useRouter } from "next/navigation";
-import { motion } from "framer-motion";
 import SectionTagHeading from "@/components/global/tags-heading";
 import Reveal from "@/components/global/reveal";
 import ImageReveal from "@/components/global/image-reveal";
-
-const FormSchema = z.object({
-  name: z.string().min(2),
-  email: z.string().min(1),
-  quantity: z.coerce.number().min(1).max(99).int(),
-  product: z.string().optional(),
-});
+import PurchaseForm from "./purchase_form";
 
 type props = {
   productId?: number;
@@ -39,26 +19,6 @@ type props = {
 };
 
 const ProductPage = ({ productId, productName }: props) => {
-  const router = useRouter();
-
-  const paragraphVariant = {
-    paraHidden: { x: 20, opacity: 0 },
-    paraVisible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        delayChildren: 1.4,
-        staggerChildren: 0.2,
-      },
-    },
-  };
-  const item = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-    },
-  };
   const displayedProduct = () => {
     if (productId !== undefined && productId >= 0) {
       return productsContent.products[productId];
@@ -66,32 +26,68 @@ const ProductPage = ({ productId, productName }: props) => {
       return productsContent.bsfLive;
     }
   };
+  const ref = useRef<HTMLSelectElement>(null);
+  const [currency, setCurrency] = useState("TZS");
+  const [rate, setRate] = useState();
+  const [amount, setAmount] = useState(displayedProduct()?.price);
 
-  const form = useForm<z.infer<typeof FormSchema>>({
-    mode: "onChange",
-    resolver: zodResolver(FormSchema),
-    defaultValues: {
-      name: "",
-      email: "",
-      quantity: 0,
-      //@ts-ignore
-      product: displayedProduct()?.title || "",
-    },
-  });
+  console.log(amount);
 
-  const submitHandler = () => {
-    toast({
-      title: "Success",
-      description: "The message is sent",
-    });
-    form.reset();
-    router.refresh();
+  const url = `https://v6.exchangerate-api.com/v6/f7b27ef9cd1c0e21d8d36e83/latest/TZS`;
+  const options = {
+    method: "GET",
   };
 
-  const isLoading = form.formState.isSubmitting;
+  fetch(url, options)
+    .then((response) => response.json())
+    .then((response) => {
+      let displayedAmount;
+      const products = displayedProduct();
+      if (products) {
+        if (currency === "TZS") {
+          displayedAmount = products.price * response.conversion_rates.TZS;
+        }
+        if (currency === "USD") {
+          displayedAmount = Math.floor(
+            products.price * response.conversion_rates.USD
+          );
+        }
+        if (currency === "EUR") {
+          displayedAmount = Math.floor(
+            products.price * response.conversion_rates.EUR
+          );
+        }
+      }
+      setAmount(displayedAmount);
+    })
+    .catch((err) => {
+      if (err) {
+        let displayedAmount;
+        const products = displayedProduct();
+        if (products) {
+          if (currency === "TZS") {
+            displayedAmount = products.price;
+          }
+          if (currency === "USD") {
+            displayedAmount = Math.floor(products.price * 0.00038);
+          }
+          if (currency === "EUR") {
+            displayedAmount = Math.floor(products.price * 0.0004);
+          }
+        }
+        setAmount(displayedAmount);
+      }
+    });
+
+  const handleSelection = () => {
+    if (ref.current) {
+      const cv: string = ref.current?.value;
+      setCurrency(cv);
+    }
+  };
 
   return (
-    <div className="flex flex-col justify-center w-full pb-[2rem] lg:px-20 md:px-12 px-6 pt-[5rem]">
+    <div className="flex flex-col justify-center w-full pb-[2rem] lg:px-14 md:px-12 px-6 pt-[5rem]">
       <div className="max-w-[2000px] mx-auto w-full">
         <section className="flex min-[860px]:flex-row flex-col min-[860px]:max-w-[70em] max-w-full min-[860px]:gap-20 gap-10 mt-[5em] rounded-lg  ">
           <div className="relative flex-[0_0_50%] [min-860px]:max-w-[600px] min-w-[10em] min-h-[20em] max-xs:min-h-[10em] p-4 rounded-2xl bg-[#3D5C30]  text-[#1e1e1e] min-[860px]:flex-[0_0_50%]  w-full ">
@@ -136,8 +132,22 @@ const ProductPage = ({ productId, productName }: props) => {
                 <span>Price: </span>
                 {
                   //@ts-ignore
-                  displayedProduct().price
+                  `${amount} ${displayedProduct()?.quantity.replace(
+                    "TZS",
+                    currency
+                  )} `
                 }
+                <select
+                  ref={ref}
+                  onChange={handleSelection}
+                  className="bg-[#FECC00] ml-4 text-sm font-medium rounded-full px-2.5 py-1"
+                  name="currency"
+                  id="currency"
+                >
+                  <option value="TZS">TZS</option>
+                  <option value="USD">USD</option>
+                  <option value="EUR">EUR</option>
+                </select>
               </Reveal>
             </div>
             <div className="min-[340px]:flex-row flex-col flex !mt-10 items-center gap-4">
@@ -168,99 +178,7 @@ const ProductPage = ({ productId, productName }: props) => {
                 }
                 btnStyles="bg-green-800 hover:text-[#fff] lg:hover:bg-green-800 hover:bg-green-800 p-6  xmd:!text-base text-white max-xmd:w-full rounded-full lg:hover:bg-green-800  max-[192px]:whitespace-normal flex space-x-2 max-[192px]:text-center !h-0"
               >
-                <div className="p-6 ">
-                  <h3 className="lg:max-w-[15em] py-3 w-full text-[1.5em] leading-[1.1] font-medium">
-                    Fill the Form to inquire the Product
-                  </h3>
-                  <Form {...form}>
-                    <form
-                      onSubmit={form.handleSubmit(submitHandler)}
-                      className="space-y-5 w-full "
-                    >
-                      <FormField
-                        control={form.control}
-                        disabled={isLoading}
-                        name="name"
-                        render={({ field }) => (
-                          <FormItem className="w-full">
-                            <FormControl>
-                              <Input
-                                placeholder="Your fullname"
-                                type="text"
-                                {...field}
-                                className="border placeholder:text-[13px]  border-[#4a704165] bg-[#C6E156]  focus:outline-none focus-visible:ring-0 focus-visible:ring-sky-600 focus:border-sky-600"
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                      <FormField
-                        control={form.control}
-                        disabled={isLoading}
-                        name="email"
-                        render={({ field }) => (
-                          <FormItem className="w-full">
-                            <FormControl>
-                              <Input
-                                placeholder="Your Email"
-                                type="text"
-                                {...field}
-                                className="border placeholder:text-[13px]  border-[#4a704165] bg-[#C6E156]  focus:outline-none focus-visible:ring-0 focus-visible:ring-sky-600 focus:border-sky-600"
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                      <FormField
-                        control={form.control}
-                        disabled={isLoading}
-                        name="quantity"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormControl>
-                              <Input
-                                placeholder="How many kilos you want"
-                                {...field}
-                                type="number"
-                                className="border placeholder:text-[13px] border-[#4a704165] bg-[#C6E156]  focus:outline-none focus-visible:ring-0 focus-visible:ring-sky-600 focus:border-sky-600"
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                      <FormField
-                        control={form.control}
-                        disabled
-                        name="product"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormControl>
-                              <Input
-                                defaultValue={
-                                  //@ts-ignore
-                                  displayedProduct().title
-                                }
-                                {...field}
-                                type="text"
-                                className="border placeholder:text-[13px] border-[#4a704165] bg-[#C6E156]  focus:outline-none focus-visible:ring-0 focus-visible:ring-sky-600 focus:border-sky-600"
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                      <Button
-                        className=" px-4 bg-[#3D5C30] max-w-[200px] w-full "
-                        type="submit"
-                      >
-                        Inquire via Email
-                      </Button>
-                    </form>
-                  </Form>
-                </div>
+                <PurchaseForm displayedProduct={displayedProduct} />
               </BenedictsDialog>
             </div>
           </div>

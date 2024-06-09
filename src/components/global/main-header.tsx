@@ -48,7 +48,7 @@ const MainHeader = ({ theme }: props) => {
       )}
     >
       <aside className="flex items-center gap-2 ">
-        <Link href={"/"} className="relative md:w-20 md:h-20 w-[5em] h-[4.5em]">
+        <Link href={"/"} className="relative md:w-20 md:h-20 w-[5.5em] h-[5em]">
           <Image
             src={theme ? limaWhite : headerContents.logourl}
             fill

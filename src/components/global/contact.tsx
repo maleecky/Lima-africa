@@ -25,7 +25,7 @@ const Contact = ({ hideCss }: props) => {
           {contactFormContents.description}
         </p>
         <Button
-          className="bg-[#013941] lg:hover:bg-[#013494] p-6 w-max lg:hidden flex mt-7 max-xmd:w-full"
+          className="bg-[#3D5C30] lg:hover:bg-green-800 p-6 w-max lg:hidden flex mt-7 max-xmd:w-full"
           asChild
         >
           <Link href="/contact">Fill in the Form</Link>
@@ -37,8 +37,8 @@ const Contact = ({ hideCss }: props) => {
             className="space-y-1"
           >
             <div>
-              <Mail className="w-8 h-8" />
-              <h4 className="text-[1.125em] font-medium ">Email</h4>
+              <Mail className="w-6 h-6" />
+              <h4 className="text-[1.11em] font-medium ">Email</h4>
             </div>
             <p className="text-sm">
               {contactFormContents.contactsInformation[1].label}
@@ -49,8 +49,8 @@ const Contact = ({ hideCss }: props) => {
             className="space-y-1"
           >
             <div>
-              <PhoneCall className="w-8 h-8" />
-              <h4 className="text-[1.125em] font-medium">Phone</h4>
+              <PhoneCall className="w-6 h-6" />
+              <h4 className="text-[1.11em] font-medium">Phone</h4>
             </div>
             <p className="text-sm">
               {contactFormContents.contactsInformation[0].label}

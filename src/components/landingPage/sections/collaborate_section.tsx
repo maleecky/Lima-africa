@@ -7,7 +7,7 @@ import React from "react";
 import Reveal from "@/components/global/reveal";
 const CollaborateSection = () => {
   return (
-    <section className="flex justify-center w-full max-w-[2000px] mx-auto items-center pb-[2em] pt-4 lg:px-20 md:px-12 px-6 ">
+    <section className="flex justify-center w-full max-w-[2000px] mx-auto items-center pb-[2em] pt-4 lg:px-14 md:px-12 px-6 ">
       <div className="flex  min-[845px]:flex-row flex-col gap-4  w-full mx-auto justify-center    ">
         {homepageContents.registrationCards.map((card, index) => (
           <div key={index}>

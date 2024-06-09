@@ -182,7 +182,7 @@ export const headerContents = {
     { label: "Services", path: "/services", productList: [] },
     { label: "Partners", path: "/#partners", productList: [] },
     { label: "Testimonials", path: "/#testimonials", productList: [] },
-    { label: "Resources", path: "/#resources", productList: [] },
+    { label: "Resources", path: "/resources", productList: [] },
   ],
   contactBtn: { label: "Get in touch", path: "/contact", icon: HandWave },
 };
@@ -250,11 +250,6 @@ export const contactFormContents = {
               />
             </g>
           </svg>
-
-          // <XIcon
-          //   width={22}
-          //   className="text-white w-4 max-sm:hover:text-sky-600  "
-          // />
         );
       },
     },
@@ -449,7 +444,8 @@ export const productsContent = {
       ],
       Applications: ["Incorporation into animal feed formulations."],
       Use: "Use in poultry, aquaculture, and swine diets.",
-      price: "2700 TSH per kg",
+      price: 2700,
+      quantity: "TZS per kg",
       suitable: "Suitable For Livestock farmers, and feed manufacturers",
 
       NutritionalContents: [
@@ -476,7 +472,8 @@ export const productsContent = {
       ],
       Applications: ["Soil amendment for crops and gardens."],
       Use: "Use in a mixture of  1:3 ratio of frass to soil.",
-      price: "2500 TSH per kg",
+      price: 2500,
+      quantity: "TZS per kg",
       suitable: "Suitable for organic farming practices",
 
       NutritionalContents: [
@@ -503,7 +500,8 @@ export const productsContent = {
       "Direct feeding to livestock, fish poultry, pigs, and pets.",
       "Enhancing the diet of pets and exotic animals.",
     ],
-    price: "2500 TSH per kg",
+    price: 2500,
+    quantity: "TZS per kg",
     suitable: "Farmers, pet owners, and Livestock enterprises.",
 
     NutritionalContents: ["Protein: ~40-45%", "Fat: ~25-35%", "Moisture: ~10%"],

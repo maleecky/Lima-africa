@@ -43,7 +43,7 @@ const HomeSection = () => {
           </div>
           <Reveal>
             <Button
-              className="bg-[#d4ffe3] hover:bg-[#d4ffe3] backdrop-blur-[4px] w-max max-sm:text-xs text-black max-[192px]:whitespace-normal flex space-x-2 max-[192px]:text-center !h-0 !p-6  rounded-full"
+              className="bg-[#d4ffe3] hover:bg-[#d4ffe3] backdrop-blur-[4px] sm:w-max max-sm:text-xs text-black  whitespace-pre-wrap flex space-x-2 max-[192px]:text-center !h-0 !p-6  rounded-full"
               asChild
             >
               <Link href="/products/bsf_dried" className="hover-arrow-animate">

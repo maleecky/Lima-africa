@@ -14,7 +14,7 @@ export default function GoogleMaps() {
           zoom="15"
         />
       </div>
-      <p className="mt-5 text-xl">Dar es salaam, Madale, Mbopo</p>
+      <p className="mt-[2em] md:text-xl ">Dar es salaam, Madale, Mbopo</p>
     </>
   );
 }

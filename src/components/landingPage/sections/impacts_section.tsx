@@ -38,7 +38,7 @@ const ImpactsSection = () => {
     onNextButtonClick,
   } = usePrevNextButtons(emblaApi);
   return (
-    <section className="w-full mb-[7.5rem] lg:px-20 md:px-12 px-6 ">
+    <section className="w-full mb-[7.5rem] lg:px-14 md:px-12 px-6 ">
       <div className="flex relative  w-full h-full">
         <div className="min-h-[500px] relative w-full rounded-2xl overflow-hidden  ">
           <Image

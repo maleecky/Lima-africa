@@ -1,12 +1,10 @@
 import SectionTagHeading from "@/components/global/tags-heading";
 import { aboutContents } from "@/lib/constants";
-import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import Reveal from "@/components/global/reveal";
-import ListReveal, { itemVariant } from "@/components/global/list-reveal";
 import ImageReveal from "@/components/global/image-reveal";
 
 const TeamSection = () => {

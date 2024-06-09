@@ -13,7 +13,7 @@ const ProductSection = () => {
   return (
     <section
       id="products"
-      className="flex justify-center w-full max-w-[2000px]  mx-auto  items-center  py-[7.5rem]  flex-col  gap-[1.4em] lg:px-20 md:px-12 px-6"
+      className="flex justify-center w-full max-w-[2000px]  mx-auto  items-center  py-[7.5rem]  flex-col  gap-[1.4em] lg:px-14 md:px-12 px-6"
     >
       <div className="   w-full relative ">
         <div className=" flex xmd:justify-center xmd:items-center flex-col w-full">

@@ -28,7 +28,7 @@ const TestimonialsSection = () => {
   return (
     <section
       id="testimonials"
-      className="flex justify-center space-y-3 w-full max-w-[2000px] mx-auto  items-center pb-[8.5em] pt-4 flex-col  gap-[1.4rem] lg:px-20 md:px-12 px-6  "
+      className="flex justify-center space-y-3 w-full max-w-[2000px] mx-auto  items-center pb-[8.5em] pt-4 flex-col  gap-[1.4rem] lg:px-14 md:px-12 px-6  "
     >
       <div className="w-full relative ">
         <div className="space-y-1 mb-4 flex justify-center items-center flex-col w-full">

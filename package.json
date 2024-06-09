@@ -55,6 +55,7 @@
     "embla-carousel-wheel-gestures": "^8.0.0-rc05",
     "framer-motion": "^11.2.10",
     "input-otp": "^1.2.4",
+    "lottie-web": "^5.12.2",
     "lucide-react": "^0.372.0",
     "next": "^14.2.3",
     "next-themes": "^0.3.0",
