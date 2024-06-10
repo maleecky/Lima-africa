@@ -70,7 +70,7 @@ const MainHeader = ({ theme }: props) => {
             if (link.label !== "Products") {
               return (
                 <Link
-                  className={clsx("!text-[1.1625em]  ", {
+                  className={clsx("!text-[1.1625em] whitespace-nowrap  ", {
                     "text-[#fff] font-medium":
                       !pageUrl.includes(link.path) && !theme,
                     "text-[#1e1e1e]": theme,
@@ -89,7 +89,7 @@ const MainHeader = ({ theme }: props) => {
                 <NavigationMenuItem>
                   <NavigationMenuTrigger
                     className={clsx(
-                      "p-0 bg-transparent rounded-none shadow-none !text-[1.1625em]  hover:!bg-transparent focus:!bg-transparent focus:!outline-none focus:!outline-offset-0",
+                      "p-0 bg-transparent rounded-none whitespace-nowrap shadow-none !text-[1.1625em]  hover:!bg-transparent focus:!bg-transparent focus:!outline-none focus:!outline-offset-0",
                       {
                         "text-[#fff] font-medium  hover:!text-white focus:!text-white ":
                           !pageUrl.includes(link.path) && !theme,
@@ -106,7 +106,7 @@ const MainHeader = ({ theme }: props) => {
                     <ul className="p-4 flex flex-col">
                       {link.productList.map((item, index) => (
                         <Link
-                          className="p-2 lg:hover:bg-green-600 rounded transition-all ease-in duration-100 lg:hover:text-white"
+                          className="p-2 lg:hover:bg-green-600 whitespace-nowrap rounded transition-all ease-in duration-100 lg:hover:text-white"
                           href={`/products/${item.link}`}
                           key={index}
                         >
