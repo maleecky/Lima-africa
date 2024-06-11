@@ -1,10 +1,8 @@
 import { homepageContents } from "@/lib/constants";
 import { Montserrat } from "next/font/google";
-import headerLarvae from "@/../public/assets/media/headerlarvae.png";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import Image from "next/image";
 import SlidesBg from "../bg-slides/slides_bg";
 import Reveal from "@/components/global/reveal";
 

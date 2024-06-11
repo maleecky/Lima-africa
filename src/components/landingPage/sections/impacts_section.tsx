@@ -16,21 +16,6 @@ const ImpactsSection = () => {
     Autoplay(),
   ]);
 
-  const containerVariant = {
-    hidden: {
-      y: -20,
-      opacity: 0,
-    },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        delayChildren: 0.8,
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
   const {
     prevBtnDisabled,
     nextBtnDisabled,
@@ -44,7 +29,7 @@ const ImpactsSection = () => {
           <Image
             src={BsfImages}
             fill
-            sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            sizes="(min-width: 600px) 100vw, (min-width: 1200px) 50vw, 33vw"
             alt="black soldier fly"
             className="object-cover"
           />

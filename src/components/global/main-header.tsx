@@ -15,7 +15,6 @@ import {
   NavigationMenuItem,
   NavigationMenuTrigger,
 } from "../ui/navigation-menu";
-import { url } from "inspector";
 
 type props = {
   theme?: string;

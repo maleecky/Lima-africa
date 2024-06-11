@@ -28,10 +28,7 @@ const ProductPage = ({ productId, productName }: props) => {
   };
   const ref = useRef<HTMLSelectElement>(null);
   const [currency, setCurrency] = useState("TZS");
-  const [rate, setRate] = useState();
   const [amount, setAmount] = useState(displayedProduct()?.price);
-
-  console.log(amount);
 
   const url = `https://v6.exchangerate-api.com/v6/f7b27ef9cd1c0e21d8d36e83/latest/TZS`;
   const options = {

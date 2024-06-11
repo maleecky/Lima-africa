@@ -10,9 +10,7 @@ import {
 import useEmblaCarousel from "embla-carousel-react";
 import SectionTagHeading from "@/components/global/tags-heading";
 import Autoplay from "embla-carousel-autoplay";
-import { motion } from "framer-motion";
 import Reveal from "@/components/global/reveal";
-import ListReveal, { itemVariant } from "@/components/global/list-reveal";
 
 const TestimonialsSection = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ slidesToScroll: "auto" }, [

@@ -266,7 +266,7 @@ label {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(-100%));
+    transform: translateX(-100%);
   }
 }
 
@@ -295,7 +295,7 @@ label {
 }
 .logos-slide {
   display: flex;
-  animation: 30s slide linear infinite;
+  animation: 45s slide linear infinite;
   width: calc(250px * 14);
   gap: 6px;
 }

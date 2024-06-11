@@ -5,7 +5,6 @@ import Contact from "@/components/global/contact";
 import MainHeader from "@/components/global/main-header";
 
 import WhatsappButton from "@/components/global/whatsappBtn";
-import OurWorkSection from "@/components/landingPage/sections/our_work_section";
 import HomeSection from "@/components/landingPage/sections/home_section";
 import ProductSection from "@/components/landingPage/sections/product_section";
 import PartnersSection from "@/components/landingPage/sections/partners_section";
@@ -41,7 +40,6 @@ export default function Home() {
       <main className="h-full relative overflow-x-hidden w-full">
         <WhatsappButton />
         <HomeSection />
-        <OurWorkSection />
         <ProductSection />
         <PartnersSection />
         <ImpactsSection />

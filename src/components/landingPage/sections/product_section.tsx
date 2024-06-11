@@ -2,10 +2,9 @@ import SectionTagHeading from "@/components/global/tags-heading";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { productsContent } from "@/lib/constants";
-import { ArrowRight, ArrowRightCircle } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import Reveal from "@/components/global/reveal";
 import ImageReveal from "@/components/global/image-reveal";
 

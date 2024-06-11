@@ -2,25 +2,10 @@ import ListReveal, { itemVariant } from "@/components/global/list-reveal";
 import Reveal from "@/components/global/reveal";
 import SectionTagHeading from "@/components/global/tags-heading";
 import { aboutContents } from "@/lib/constants";
-import { motion, Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import React from "react";
 
 const Commitment = () => {
-  const container = {
-    hidden: { opacity: 1 },
-    visible: {
-      opacity: 1,
-      transition: { delayChildren: 1, staggerChildren: 0.2 },
-    },
-  };
-
-  const items = {
-    hidden: { x: 20, opacity: 0 },
-    visible: {
-      x: 0,
-      opacity: 1,
-    },
-  };
   return (
     <section className="lg:px-14 md:px-12 px-6 max-w-[140em] pb-[7.5em] mx-auto">
       <div className="flex items-center w-full h-full  justify-center">

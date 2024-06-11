@@ -4,6 +4,7 @@ import {
   FormControl,
   FormField,
   FormItem,
+  FormLabel,
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
@@ -63,9 +64,14 @@ const PurchaseForm = ({ displayedProduct }: Props) => {
             name="name"
             render={({ field }) => (
               <FormItem className="w-full">
+                <FormLabel className=" [min-950px]:w-max flex items-start justify-start w-full  p-0">
+                  <p className="text-left">
+                    Fullname
+                    <span className="text-red-800">*</span>
+                  </p>
+                </FormLabel>
                 <FormControl>
                   <Input
-                    placeholder="Your fullname"
                     type="text"
                     {...field}
                     className="border placeholder:text-[13px]  border-[#4a704165]   focus:outline-none focus-visible:ring-0 focus-visible:ring-sky-600 focus:border-sky-600"
@@ -81,9 +87,14 @@ const PurchaseForm = ({ displayedProduct }: Props) => {
             name="email"
             render={({ field }) => (
               <FormItem className="w-full">
+                <FormLabel className=" [min-950px]:w-max flex items-start justify-start w-full  p-0">
+                  <p className="text-left">
+                    Email
+                    <span className="text-red-800">*</span>
+                  </p>
+                </FormLabel>
                 <FormControl>
                   <Input
-                    placeholder="Your Email"
                     type="text"
                     {...field}
                     className="border placeholder:text-[13px]  border-[#4a704165]   focus:outline-none focus-visible:ring-0 focus-visible:ring-sky-600 focus:border-sky-600"
@@ -100,8 +111,13 @@ const PurchaseForm = ({ displayedProduct }: Props) => {
             render={({ field }) => (
               <FormItem>
                 <FormControl>
+                  <FormLabel className=" [min-950px]:w-max flex items-start justify-start w-full  p-0">
+                    <p className="text-left">
+                      How many kilos you want
+                      <span className="text-red-800">*</span>
+                    </p>
+                  </FormLabel>
                   <Input
-                    placeholder="How many kilos you want"
                     {...field}
                     type="number"
                     className="border placeholder:text-[13px] border-[#4a704165]  focus:outline-none focus-visible:ring-0 focus-visible:ring-sky-600 focus:border-sky-600"
@@ -118,6 +134,12 @@ const PurchaseForm = ({ displayedProduct }: Props) => {
             render={({ field }) => (
               <FormItem>
                 <FormControl>
+                  <FormLabel className=" [min-950px]:w-max flex items-start justify-start w-full  p-0">
+                    <p className="text-left">
+                      Product
+                      <span className="text-red-800">*</span>
+                    </p>
+                  </FormLabel>
                   <Input
                     defaultValue={
                       //@ts-ignore

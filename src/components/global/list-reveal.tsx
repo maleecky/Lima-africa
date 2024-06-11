@@ -44,7 +44,7 @@ const ListReveal = ({ children, styles }: Props) => {
       variants={container}
       initial="hidden"
       animate={mainControls}
-      transition={{ duration: 0.2 }}
+      transition={{ duration: 2 }}
       className={styles}
     >
       {children}
