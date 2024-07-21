@@ -39,13 +39,13 @@ const TeamSection = () => {
             {aboutContents.Team.members.map((member, index) => (
               <div
                 key={index}
-                className="embla__slide xl:!flex-[0_0_20%] !flex-[0_0_33%]"
+                className="embla__slide xl:!flex-[0_0_16%] !flex-[0_0_33%] max-sm:!flex-[0_0_100%]"
               >
                 <Link
                   href={member.linkedinLink}
                   className=" flex  relative  bg-transparent justify-center items-center flex-col "
                 >
-                  <ImageReveal styles="relative min-[720px]:h-32 h-56  min-[720px]:w-32 w-56">
+                  <ImageReveal styles="relative min-[720px]:h-32 h-56  min-[720px]:w-32 w-56 max-sm:w-full">
                     <Image
                       src={member.img}
                       width={200}
@@ -57,7 +57,7 @@ const TeamSection = () => {
 
                   <div className="flex p-2 flex-col items-center w-full   ">
                     <Reveal>
-                      <h4 className="text-sm font-medium  leading-relaxed">
+                      <h4 className="text-sm font-medium text-center whitespace-nowrap  leading-relaxed">
                         {member.name.toUpperCase()}
                       </h4>
                     </Reveal>

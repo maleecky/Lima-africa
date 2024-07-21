@@ -31,6 +31,7 @@ import Climeik from "@/../public/assets/media/Climeik.png";
 import Climaccelerator from "@/../public/assets/media/climaccelerator.png";
 import CfElogo from "@/../public/assets/media/CfE-TUB.png";
 import AnorldPhoto from "@/../public/assets/media/arnold.jpg";
+import catherinePhoto from "@/../public/assets/media/COO.jpg";
 import HellenPhoto from "@/../public/assets/media/hellen.jpg";
 import JarvisPhoto from "@/../public/assets/media/jarvis.jpg";
 import YasserPhoto from "@/../public/assets/media/yasser.jpg";
@@ -633,6 +634,14 @@ export const aboutContents = {
         linkedinLink:
           "https://www.linkedin.com/in/arnold-shoko-b262131a0/?originalSubdomain=tz",
       },
+      {
+        name: "Catherine Fridolin",
+        title: "Co-Founder & COO",
+        img: catherinePhoto,
+        linkedinLink:
+          "https://www.linkedin.com/in/catherine-fridolin-038925214/?originalSubdomain=tz",
+      },
+
       {
         name: " Hellen Magreth",
         title: "Farm Manager",
