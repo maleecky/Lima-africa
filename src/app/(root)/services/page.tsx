@@ -1,9 +1,8 @@
 import MainHeader from "@/components/global/main-header";
 import React from "react";
-import LandingSection from "./_components/landing-section";
-import SdgSection from "./_components/sdg-section";
-import BrandValue from "./_components/brand-value";
-import WasteManagement from "./_components/waste-management";
+import LandingSection from "./(_components)/landing-section";
+import SdgSection from "./(_components)/sdg-section";
+import WasteManagement from "./(_components)/waste-management";
 import MainFooter from "@/components/global/main-footer";
 
 const ServicesPage = () => {

@@ -1,5 +1,5 @@
 import React from "react";
-import Animation from "./components/animation";
+import Animation from "./(components)/animation";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 

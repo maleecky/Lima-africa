@@ -45,7 +45,7 @@ const MenuContents = () => {
                             <SheetClose asChild className="w-full">
                               <Link
                                 className=" hover:text-[#3f3f3f]  xmd:!text-[1.35em] !text-[1.25em] p-0  leading-[1]  rounded transition-all ease-in duration-100"
-                                href={`/products/${item.link}`}
+                                href={`/${item.link}`}
                               >
                                 {item.label}
                               </Link>

@@ -3,12 +3,12 @@
 import React from "react";
 import MainHeader from "@/components/global/main-header";
 import MainFooter from "@/components/global/main-footer";
-import AboutSection from "./_components/about-front";
-import WhatWeDo from "./_components/what-we-do";
-import MissionsSection from "./_components/missions-section";
-import Commitment from "./_components/commitment";
-import LimaHistory from "./_components/history";
-import TeamSection from "./_components/team";
+import AboutSection from "./(_components)/about-front";
+import WhatWeDo from "./(_components)/what-we-do";
+import MissionsSection from "./(_components)/missions-section";
+import Commitment from "./(_components)/commitment";
+import LimaHistory from "./(_components)/history";
+import TeamSection from "./(_components)/team";
 
 const About = () => {
   return (

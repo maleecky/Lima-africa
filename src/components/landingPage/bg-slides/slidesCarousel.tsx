@@ -1,12 +1,12 @@
 import React from "react";
 import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel from "embla-carousel-react";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import { EmblaOptionsType } from "embla-carousel";
 import styles from "./embla.module.css";
 
 interface props {
-  slides: { url: StaticImageData }[];
+  slides: { url: string }[];
   options?: EmblaOptionsType;
 }
 const SlidesCarousel = ({ slides, options }: props) => {

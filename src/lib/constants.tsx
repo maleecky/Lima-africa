@@ -1,4 +1,4 @@
-import HandWave from "@/../public/assets/media/hand-wave.svg";
+const HandWave = "v1721898373/hand-wave_dcgxgx.svg";
 
 import {
   ArchiveIcon,
@@ -12,43 +12,36 @@ import {
   TwitterIcon,
   XIcon,
 } from "lucide-react";
-import blackSoldierImgProduct from "@/../public/assets/media/MAGUNIA MOCKUP.png";
-import blackSoldier from "@/../public/assets/media/bsf-w.png";
-import limaOrganicFertilizer from "@/../public/assets/media/MAGUNIA MOCKUP 2.png";
-import PeopleStanding from "@/../public/assets/media/standing_about_1.jpg";
-import GreenhouseNet from "@/../public/assets/media/celebrates.jpg";
-import MosqueShade from "@/../public/assets/media/shade.jpg";
-import personAvatar from "@/../public/assets/media/person.svg";
-import EnnovateLogo from "../../public/assets/media/ennovatelogo.png";
-import AquaEco from "@/../public/assets/media/aquaEco.png";
-import GlobalStud from "@/../public/assets/media/globalstudlogo-w.png";
-import Hekimalogo from "@/../public/assets/media/hakimalogo.png";
-import Hultilogo from "@/../public/assets/media/hultlogo.png";
-import Saharalogo from "@/../public/assets/media/sahara-w.png";
-import Sbpogo from "@/../public/assets/media/sbp_irishaid-wix.png";
-import Elico from "@/../public/assets/media/elico.png";
-import Climeik from "@/../public/assets/media/Climeik.png";
-import Climaccelerator from "@/../public/assets/media/climaccelerator.png";
-import CfElogo from "@/../public/assets/media/CfE-TUB.png";
-import AnorldPhoto from "@/../public/assets/media/arnold.jpg";
-import catherinePhoto from "@/../public/assets/media/COO.jpg";
-import HellenPhoto from "@/../public/assets/media/hellen.jpg";
-import JarvisPhoto from "@/../public/assets/media/jarvis.jpg";
-import YasserPhoto from "@/../public/assets/media/yasser.jpg";
-import MercusPhoto from "@/../public/assets/media/mercus.jpg";
-import limaWhite from "@/../public/assets/media/lima-logo-w.png";
-import RocketAvatar from "@/../public/assets/media/roket.svg";
-import NoPovertyImg from "@/../public/assets/media/no-poverty.png";
-import NohungerImg from "@/../public/assets/media/appetite_5277050.png";
-import EqualityImg from "@/../public/assets/media/equality_4253821.png";
-import Boost from "@/../public/assets/media/inflation_5623036.png";
-import ProductionImg from "@/../public/assets/media/recyclable_5199669.png";
-import climateImg from "@/../public/assets/media/home_5663134.png";
-import atmosphereImg from "@/../public/assets/media/atmosphere_10972616.png";
-import bgFirst from "@/../public/assets/media/bg1.jpg";
-import bgSecond from "@/../public/assets/media/bg2.jpg";
-import bgThird from "@/../public/assets/media/bg3.jpg";
-import bgFouth from "@/../public/assets/media/bg4.jpg";
+const blackSoldierImgProduct = "v1721900284/MAGUNIA_MOCKUP_cfcjry.png";
+const limaOrganicFertilizer = "v1721909488/MAGUNIA_MOCKUP_2_cjjbf5.png";
+const PeopleStanding = "v1721898393/standing_about_1_dlo7vg.jpg";
+const GreenhouseNet = "v1721898367/celebrates_rvaqgj.jpg";
+const MosqueShade = "v1721898390/shade_fmosm1.jpg";
+const personAvatar = "v1721898386/person_u4dyga.svg";
+const EnnovateLogo = "v1721898368/ennovatelogo_iu4tje.png";
+const AquaEco = "v1721898360/aquaEco_n9vreo.png";
+const GlobalStud = "v1721898371/globalstudlogo-w_xfc3fh.png";
+const Hekimalogo = "v1721898373/hakimalogo_bhg5ht.png";
+const Hultilogo = "v1721898375/hultlogo_gcm0lh.png";
+const Saharalogo = "v1721898389/sahara-w_maurvv.png";
+const Sbpogo = "v1721898389/sbp_irishaid-wix_ayssce.png";
+const Elico = "v1721898367/elico_lidssu.jpg";
+const Climeik = "v1721898366/Climeik_zwoxj1.png";
+const Climaccelerator = "v1721898365/climaccelerator_ca9aa7.png";
+const CfElogo = "v1721898365/CfE-TUB_ygaawl.png";
+const AnorldPhoto = "v1721898360/arnold_iu1koq.jpg";
+const catherinePhoto = "v1721898366/COO_ll8emq.jpg";
+const HellenPhoto = "v1721898374/hellen_fdocj3.jpg";
+const JarvisPhoto = "v1721898376/jarvis_r9t0fr.jpg";
+const YasserPhoto = "v1721898392/yasser_xkmdx6.jpg";
+const MercusPhoto = "v1721898384/mercus_l6onuq.jpg";
+
+const RocketAvatar = "v1721898388/roket_x1uno7.svg";
+
+const bgFirst = "v1721898360/bg1_fqedfa.jpg";
+const bgSecond = "v1721898361/bg2_xklbm8.jpg";
+const bgThird = "v1721898364/bg3_bo1jsw.jpg";
+const bgFouth = "v1721898362/bg4_mqli1z.jpg";
 
 export const serviceContent = {
   vision:
@@ -80,43 +73,43 @@ export const SDGContents = {
   alignments: [
     {
       title: " No Poverty",
-      imgUrl: NoPovertyImg,
+      imgUrl: "v1721898385/no-poverty_ghdbsb.png",
       description:
         "By providing affordable and sustainable farming solutions, we help smallholder farmers increase their incomes and improve their livelihoods.",
     },
     {
       title: " Zero Hunger",
-      imgUrl: NohungerImg,
+      imgUrl: "v1721898358/appetite_5277050_py2pea.png",
       description:
         "Our protein feed and organic fertilizers boost agricultural productivity and food security, addressing hunger and malnutrition.",
     },
     {
       title: " Gender Equality",
-      imgUrl: EqualityImg,
+      imgUrl: "v1721898369/equality_4253821_abhp5p.png",
       description:
         "We empower women farmers, with over 50% of our beneficiaries and workers being women, promoting gender equality in agriculture.",
     },
     {
       title: " Decent Work and Economic Growth",
-      imgUrl: Boost,
+      imgUrl: "v1721898388/roket_x1uno7.svg",
       description:
         "By creating a sustainable agricultural value chain, we support decent work and economic growth in rural communities.",
     },
     {
       title: "  Responsible Consumption and Production",
-      imgUrl: ProductionImg,
+      imgUrl: "v1721898388/recyclable_5199669_vusmyh.png",
       description:
         "Our initiative promotes responsible waste management and sustainable production practices.",
     },
     {
       title: " Climate Action",
-      imgUrl: atmosphereImg,
+      imgUrl: "v1721898360/atmosphere_10972616_uhxnzn.png",
       description:
         "We mitigate climate change impacts by reducing greenhouse gas emissions and promoting climate-resilient farming practices.",
     },
     {
       title: " Life on Land",
-      imgUrl: climateImg,
+      imgUrl: "v1721898374/home_5663134_wktp2c.png",
       description:
         "Our work combats land degradation and biodiversity loss, supporting the health of terrestrial ecosystems.",
     },
@@ -128,7 +121,7 @@ export const impactsSection = {
   impacts: [
     {
       title: "Why Black Soldier Fly?",
-      imgUrl: blackSoldier,
+      imgUrl: "v1721898362/bsf-w_qiutaa.png",
       description: {
         hazard:
           "We harness the incredible potential of Black Soldier Flies (BSF) to revolutionize agriculture in Africa. These remarkable insects are nature's recyclers, and we've found a way to turn their abilities into benefits for farmers and the environment.",
@@ -167,7 +160,7 @@ export const impactsSection = {
 };
 
 export const headerContents = {
-  logourl: limaWhite,
+  logourl: "v1721898381/lima-logo-w_mpnunh.png",
 
   links: [
     {
@@ -199,7 +192,7 @@ export const contactFormContents = {
       },
     },
     {
-      label: "shoko@limaafrica.co",
+      label: "info@limaafrica.co.tz",
       icon: () => {
         return <MailIcon width={22} className=" text-[#1e1e1e] sm:w-4 " />;
       },
@@ -348,7 +341,7 @@ export const distributorFormContents = {
     cols: [
       {
         name: "Capacity",
-        placeholder: "Capacity to Distribute LIMA Products",
+        placeholder: "Capacity to Distribute LIMA Products, Kg",
         required: true,
       },
       {
@@ -456,7 +449,7 @@ export const productsContent = {
       ],
 
       actionBtn: { label: "Buy Now" },
-      link: { title: "See more", path: "/products/bsf_dried" },
+      link: { title: "See more", path: "/bsf_dried" },
     },
     {
       img: limaOrganicFertilizer,
@@ -484,7 +477,7 @@ export const productsContent = {
       ],
 
       actionBtn: { label: "Order Now" },
-      link: { title: "See more", path: "/products/frass" },
+      link: { title: "See more", path: "/frass" },
     },
   ],
   bsfLive: {
@@ -508,7 +501,7 @@ export const productsContent = {
     NutritionalContents: ["Protein: ~40-45%", "Fat: ~25-35%", "Moisture: ~10%"],
 
     actionBtn: { label: "Buy Now" },
-    link: { title: "See more", path: "/products/bsf_live" },
+    link: { title: "See more", path: "/bsf_live" },
   },
 };
 

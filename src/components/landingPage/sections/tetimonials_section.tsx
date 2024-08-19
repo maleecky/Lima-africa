@@ -1,7 +1,6 @@
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { testimonialsContents } from "@/lib/constants";
 import Image from "next/image";
-import quotationTag from "@/../public/assets/media/Double_quotation_marks.png";
 import {
   NextButton,
   PrevButton,
@@ -11,6 +10,8 @@ import useEmblaCarousel from "embla-carousel-react";
 import SectionTagHeading from "@/components/global/tags-heading";
 import Autoplay from "embla-carousel-autoplay";
 import Reveal from "@/components/global/reveal";
+
+const quotationTag = "v1721898366/Double_quotation_marks_k2dobn.png";
 
 const TestimonialsSection = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ slidesToScroll: "auto" }, [

@@ -1,6 +1,6 @@
 import Image from "next/image";
-import foodWaste from "@/../public/assets/media/food_waste.png";
-import boostIcon from "@/../public/assets/media/boost.png";
+const foodWaste = "v1721898370/food_waste_ppwrmy.png";
+const boostIcon = "v1721898361/boost_rfqhve.png";
 import { customersPitch } from "@/lib/constants";
 import { motion } from "framer-motion";
 import Reveal from "@/components/global/reveal";

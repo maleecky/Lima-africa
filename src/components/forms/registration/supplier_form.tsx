@@ -19,12 +19,13 @@ import { Input } from "@/components/ui/input";
 import { farmerFormContents } from "@/lib/constants";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import * as z from "zod";
 import BenedictsDialog from "./_component/dialog_beneficts";
 import { useRouter } from "next/navigation";
 import { toast } from "@/components/ui/use-toast";
 import Reveal from "@/components/global/reveal";
+import { SendMail } from "@/lib/sending-mail.";
 
 const FormSchema = z.object({
   Name: z.string().min(2),
@@ -48,13 +49,40 @@ const SupplierForm = () => {
     },
   });
 
-  const submitHandler = () => {
-    toast({
-      title: "Success",
-      description: "The message is sent",
-    });
-    form.reset();
-    router.refresh();
+  const submitHandler: SubmitHandler<{
+    Name: string;
+    ContactInformation: string;
+    Location: string;
+    Capacity: number;
+    Experience: number;
+  }> = (data) => {
+    const message = `we would love to become a outgrower of lima's product our experience in agricultural business is ${data.Experience} years,\n we are located at ${data.Location}, \nif we had been given a chance, we can outgrow a lima's product to a  capacity of ${data.Capacity} kg `;
+    const templateParams = {
+      from_name: data.Name,
+      message: message,
+      from_email: data.ContactInformation,
+      reply_to: data.ContactInformation,
+    };
+
+    SendMail({ templateParams })
+      .then((response) => {
+        console.log(response);
+        if (response)
+          toast({
+            title: "Success",
+            description: "Inquire has been sent",
+          });
+
+        router.refresh();
+      })
+      .catch((error) => {
+        if (error)
+          toast({
+            variant: "destructive",
+            title: "Failed",
+            description: "Failed to send a message",
+          });
+      });
   };
 
   const isLoading = form.formState.isSubmitting;

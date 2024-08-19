@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import loadingIcon from "@/../public/assets/media/loading-icon.png";
+const loadingIcon = "v1721898382/loading-icon_cclfze.png";
 
 const LoadingComponent = () => {
   return (

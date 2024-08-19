@@ -18,7 +18,7 @@ const ImageReveal = ({ children, styles }: Props) => {
     if (isInView) {
       mainControls.start("visible");
     }
-  }, [isInView]);
+  }, [isInView, mainControls]);
   return (
     <motion.div
       ref={ref}

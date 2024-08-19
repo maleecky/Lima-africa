@@ -12,12 +12,13 @@ import {
 import { Input } from "@/components/ui/input";
 import { distributorFormContents } from "@/lib/constants";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import * as z from "zod";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import { toast } from "@/components/ui/use-toast";
 import Reveal from "@/components/global/reveal";
+import { SendMail } from "@/lib/sending-mail.";
 
 const BenedictsDialog = dynamic(() => import("./_component/dialog_beneficts"));
 
@@ -45,13 +46,41 @@ const DistributorForm = () => {
     },
   });
 
-  const submitHandler = () => {
-    toast({
-      title: "Success",
-      description: "The message is sent",
-    });
-    form.reset();
-    router.refresh();
+  const submitHandler: SubmitHandler<{
+    Name: string;
+    ContactInformation: string;
+    BusinessName: string;
+    Location: string;
+    Capacity: string;
+    Experience: string;
+  }> = (data) => {
+    const message = `we would love to become a distributor of lima's product our experience in agricultural business is ${data.Experience} years,\n Our business name is ${data.BusinessName} and we are located at ${data.Location}, \nif we had been given a chance, we can distribute a lima's product to a  capacity of ${data.Capacity} kg `;
+    const templateParams = {
+      from_name: data.Name,
+      message: message,
+      from_email: data.ContactInformation,
+      reply_to: data.ContactInformation,
+    };
+
+    SendMail({ templateParams })
+      .then((response) => {
+        console.log(response);
+        if (response)
+          toast({
+            title: "Success",
+            description: "Inquire has been sent",
+          });
+
+        router.refresh();
+      })
+      .catch((error) => {
+        if (error)
+          toast({
+            variant: "destructive",
+            title: "Failed",
+            description: "Failed to send a message",
+          });
+      });
   };
 
   const isLoading = form.formState.isSubmitting;

@@ -3,11 +3,11 @@ import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 
 type props = {
   btn: string;
-  children: React.ReactNode;
   btnStyles?: string;
+  children: React.ReactNode;
 };
 
-export default function BenedictsDialog({ btn, children, btnStyles }: props) {
+export default function BenedictsDialog({ btn, btnStyles, children }: props) {
   return (
     <Dialog>
       <DialogTrigger asChild className="w-full ">

@@ -6,7 +6,7 @@ import React, { useEffect, useState } from "react";
 import { Button } from "../ui/button";
 import { MenuSheet } from "./menu-bar";
 import { headerContents } from "@/lib/constants";
-import limaWhite from "@/../public/assets/media/lima-logo.png";
+const limaWhite = "v1721898380/lima-logo_h5dloq.png";
 import clsx from "clsx";
 import { usePathname } from "next/navigation";
 import {
@@ -106,7 +106,7 @@ const MainHeader = ({ theme }: props) => {
                       {link.productList.map((item, index) => (
                         <Link
                           className="p-2 lg:hover:bg-green-600 whitespace-nowrap rounded transition-all ease-in duration-100 lg:hover:text-white"
-                          href={`/products/${item.link}`}
+                          href={`/${item.link}`}
                           key={index}
                         >
                           {item.label}

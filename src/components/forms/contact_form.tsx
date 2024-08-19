@@ -11,7 +11,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import * as z from "zod";
 import { Input, InputProps } from "../ui/input";
 import { Textarea } from "../ui/textarea";
@@ -21,6 +21,7 @@ import { Checkbox } from "../ui/checkbox";
 import clsx from "clsx";
 import { toast } from "../ui/use-toast";
 import { useRouter } from "next/navigation";
+import { SendMail } from "@/lib/sending-mail.";
 
 const FormSchema = z.object({
   fullName: z.string().min(2, {
@@ -58,13 +59,40 @@ const ContactForm = ({ hideCss }: Props) => {
     },
   });
 
-  const submitHandler = () => {
-    toast({
-      title: "Success",
-      description: "The message is sent",
-    });
-    form.reset();
-    router.refresh();
+  const submitHandler: SubmitHandler<{
+    fullName: string;
+    phone: string;
+    email: string;
+    address: string;
+    socialLinks: string;
+    message: string;
+    contactAgreement: boolean;
+  }> = (data) => {
+    const templateParams = {
+      from_name: data.fullName,
+      message: data.message,
+      from_email: data.email,
+      reply_to: data.email,
+    };
+
+    SendMail({ templateParams })
+      .then((response) => {
+        if (response)
+          toast({
+            title: "Success",
+            description: "Inquire has been sent",
+          });
+
+        router.refresh();
+      })
+      .catch((error) => {
+        if (error)
+          toast({
+            variant: "destructive",
+            title: "Failed",
+            description: "Failed to send a message",
+          });
+      });
   };
 
   const isLoading = form.formState.isSubmitting;

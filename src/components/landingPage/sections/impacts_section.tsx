@@ -1,5 +1,5 @@
 import Image from "next/image";
-import BsfImages from "@/../public/assets/media/BSF_image.jpeg";
+const BsfImages = "v1721898361/BSF_image_azkr9h.jpg";
 import React from "react";
 import {
   NextButton,
